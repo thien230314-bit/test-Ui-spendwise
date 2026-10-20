@@ -15,6 +15,7 @@
     "test:ui": "node scripts/test-ui-review.cjs",
     "test:admin": "node scripts/test-admin-actions.cjs",
     "test:feedback": "node scripts/test-feedback.cjs",
-    "test:ux": "node scripts/test-ux-quality.cjs"
+    "test:ux": "node scripts/test-ux-quality.cjs",
+    "test:user-ui": "node scripts/test-user-polish.cjs"
   }
 }
