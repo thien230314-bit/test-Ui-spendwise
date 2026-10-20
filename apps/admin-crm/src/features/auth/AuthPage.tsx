@@ -582,10 +582,10 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
   };
 
   return (
-    <div className="desk-tabletop-container min-h-screen w-full flex flex-col items-center justify-center p-3 sm:p-6 text-slate-800 dark:text-[#E5E7EB] antialiased font-sans relative overflow-x-hidden selection:bg-emerald-500 selection:text-white transition-colors duration-300">
+    <div className="clean-auth-container min-h-screen w-full flex flex-col items-center justify-center p-3 sm:p-6 text-slate-800 dark:text-[#E5E7EB] antialiased font-sans relative overflow-x-hidden selection:bg-emerald-500 selection:text-white transition-colors duration-300">
       {/* Desk Lamp Warm Ambient Lighting & Desk Edge Vignette */}
-      <div className="desk-lamp-glow-overlay" aria-hidden="true" />
-      <div className="desk-wood-vignette" aria-hidden="true" />
+      <div className="desk-lamp-glow-overlay hidden" aria-hidden="true" />
+      <div className="desk-wood-vignette hidden" aria-hidden="true" />
 
       {/* Top Header Bar */}
       <div className="w-full max-w-[940px] flex items-center justify-between py-2 mb-3 z-10 px-2 sm:px-4">
@@ -675,7 +675,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
         <div className="desk-leather-mat" aria-hidden="true" />
 
         {/* Notebook Leather Outer Cover */}
-        <div className="notebook-leather-cover" aria-hidden="true">
+        <div className="notebook-leather-cover hidden" aria-hidden="true">
           <div className="notebook-corner top-left" />
           <div className="notebook-corner top-right" />
           <div className="notebook-corner bottom-left" />
@@ -683,7 +683,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
         </div>
 
         {/* Notebook Pen Loop & Stylus on Right Rim */}
-        <div className="notebook-pen-loop" aria-hidden="true">
+        <div className="notebook-pen-loop hidden" aria-hidden="true">
           <div className="notebook-pen">
             <div className="notebook-pen-cap" />
             <div className="notebook-pen-clip" />
@@ -694,7 +694,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
         {/* ================= DESK STATIONERY PENS (3 BÚT TO ĐẶT NGOÀI CUỐN SỔ) ================= */}
         {/* 1. Cây bút chì gỗ to (Big Hexagonal Cedar Wood Pencil) - Bên trái cuốn sổ */}
         <div
-          className="desk-stationery-item desk-pen-pos-pencil hidden lg:block"
+          className="desk-stationery-item hidden desk-pen-pos-pencil hidden lg:block"
           title={locale === 'vi-VN' ? 'Bút chì gỗ tuyết tùng 2B' : 'Cedar Wood Drafting Pencil 2B'}
         >
           <div className="desk-big-pencil desk-pen-shadow">
@@ -712,7 +712,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
 
         {/* 2. Cây bút máy to sang trọng (Big Luxury Gold Fountain Pen) - Bên phải phía trên */}
         <div
-          className="desk-stationery-item desk-pen-pos-fountain hidden lg:block"
+          className="desk-stationery-item hidden desk-pen-pos-fountain hidden lg:block"
           title={locale === 'vi-VN' ? 'Bút máy cao cấp mạ vàng' : 'Luxury Gold Fountain Pen'}
         >
           <div className="desk-big-fountain-pen desk-pen-shadow">
@@ -728,7 +728,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
 
         {/* 3. Cây bút điện tử to thông minh (Big Modern Digital Stylus / Smart Pen) - Bên phải phía dưới */}
         <div
-          className="desk-stationery-item desk-pen-pos-stylus hidden lg:block"
+          className="desk-stationery-item hidden desk-pen-pos-stylus hidden lg:block"
           title={locale === 'vi-VN' ? 'Bút cảm ứng điện tử thông minh' : 'Smart Digital Stylus Pen'}
         >
           <div className="desk-big-digital-stylus desk-pen-shadow">
@@ -744,10 +744,10 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
 
         <div className="auth-container">
           {/* Dây ruy-băng lụa đánh dấu trang sổ (Kẹp tại trang Đăng nhập) */}
-          <div className="notebook-ribbon-bookmark" aria-hidden="true" />
+          <div className="notebook-ribbon-bookmark hidden" aria-hidden="true" />
 
           {/* Notebook Center Ring Binder (Còng khuyên lò xo kim loại mạ đồng) */}
-          <div className="notebook-spine-rings" aria-hidden="true">
+          <div className="notebook-spine-rings hidden" aria-hidden="true">
             {[0, 1, 2, 3, 4, 5, 6, 7].map((idx) => (
               <div key={idx} className="notebook-ring-unit" style={{ top: `${7 + idx * 11.8}%` }}>
                 <div className="notebook-hole left" />

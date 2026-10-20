@@ -1,32 +1,33 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
-import './NotebookAuth.css';
-import {useCopy} from '../../demo/copy';
+import React, { useState, useRef } from 'react';
+import { useCopy } from '../../demo/copy';
 import { SpendWiseSLoading } from '../../components/ui/SpendWiseSLoading';
+import { Mail, Lock, User, Phone, ArrowRight, Eye, EyeOff } from 'lucide-react';
 
 export interface NotebookAuthProps {
-  onLogin?: (email:string,password:string)=>Promise<void>;
-  onRegister?: (name:string,email:string,phone:string,password:string,confirm:string)=>Promise<void>;
-  onForgot?:()=>void;
+  onLogin?: (email: string, password: string) => Promise<void>;
+  onRegister?: (name: string, email: string, phone: string, password: string, confirm: string) => Promise<void>;
+  onForgot?: () => void;
   statusMode?: 'normal' | 'loading' | 'error' | 'success';
 }
 
 export const NotebookAuth: React.FC<NotebookAuthProps> = ({
-  onLogin, onRegister, onForgot,
+  onLogin,
+  onRegister,
+  onForgot,
 }) => {
-  const t=useCopy();
-  const [authBusy,setAuthBusy] = useState(false);
-  const submissionRef=useRef(false);
+  const t = useCopy();
+  const [mode, setMode] = useState<'login' | 'register'>('login');
+  const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
-  const submit = async (run:()=>Promise<void>) => { if(busy||submissionRef.current)return;submissionRef.current=true;setError('');setAuthBusy(true);try {await run();}catch(e){setError(e instanceof Error?e.message:'Demo error');}finally{submissionRef.current=false;setAuthBusy(false);} };
-  const [state, setState] = useState<'login' | 'register'>('login');
-  const [busy, setBusy] = useState<boolean>(false);
+  const submissionRef = useRef(false);
 
-  // Form inputs state
+  // Login form states
   const [loginId, setLoginId] = useState('a@spendwise.demo');
   const [loginPass, setLoginPass] = useState('Demo@12345');
   const [showLoginPass, setShowLoginPass] = useState(false);
   const [remember, setRemember] = useState(true);
 
+  // Register form states
   const [regName, setRegName] = useState('Nguyễn Văn An');
   const [regEmail, setRegEmail] = useState('an.nguyen@spendwise.demo');
   const [regPhone, setRegPhone] = useState('0912345678');
@@ -34,554 +35,274 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
   const [regConfirm, setRegConfirm] = useState('Demo@12345');
   const [showRegPass, setShowRegPass] = useState(false);
 
-  // Refs
-  const bookRef = useRef<HTMLDivElement>(null);
-  const leafRef = useRef<HTMLDivElement>(null);
-  const shadeRef = useRef<HTMLDivElement>(null);
-  const pgLoginRef = useRef<HTMLElement>(null);
-  const pgRegRef = useRef<HTMLElement>(null);
-  const sheetRootRef = useRef<HTMLDivElement | null>(null);
-
-  const loginInputRef = useRef<HTMLInputElement>(null);
-  const regInputRef = useRef<HTMLInputElement>(null);
-
-  // Cuốn sổ có chiều cao cố định = 520px (như file mẫu)
-  const TOP = 62;
-  const N = 18;
-  const DUR = 1150;
-  const LEAD = 0.65;
-
-  const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-  // Đo một lần theo trang cao nhất + TOP (62px)
-  const fit = () => {
-    if (!pgLoginRef.current || !pgRegRef.current || !bookRef.current) return;
-    const il = pgLoginRef.current.querySelector('.nb-inner') as HTMLElement | null;
-    const ir = pgRegRef.current.querySelector('.nb-inner') as HTMLElement | null;
-    if (il && ir) {
-      il.style.minHeight = ir.style.minHeight = '';
-      const contentH = Math.max(il.scrollHeight, ir.scrollHeight, il.offsetHeight, ir.offsetHeight);
-      const H = Math.max(contentH + TOP, 595);
-      bookRef.current.style.height = `${H}px`;
-      il.style.minHeight = ir.style.minHeight = `${H - TOP}px`;
-    }
-  };
-
-  useLayoutEffect(() => {
-    fit();
-    const onResize = () => fit();
-    window.addEventListener('resize', onResize);
-
-    // Dùng ResizeObserver theo dõi cả hai trang nội dung để tự động cập nhật
-    let ro: ResizeObserver | null = null;
-    if (typeof ResizeObserver !== 'undefined') {
-      ro = new ResizeObserver(() => fit());
-      const il = pgLoginRef.current?.querySelector('.nb-inner');
-      const ir = pgRegRef.current?.querySelector('.nb-inner');
-      if (il) ro.observe(il);
-      if (ir) ro.observe(ir);
-    }
-
-    if (document.fonts) {
-      document.fonts.ready.then(() => fit());
-    }
-    return () => {
-      window.removeEventListener('resize', onResize);
-      ro?.disconnect();
-    };
-  }, []);
-
-  const stripsRef = useRef<
-    {
-      s: HTMLElement;
-      f: HTMLElement;
-      b: HTMLElement;
-      shF: HTMLElement;
-      shB: HTMLElement;
-    }[]
-  >([]);
-
-  const makeHoles = (host: HTMLElement) => {
-    host.innerHTML = '';
-    const NR = 9;
-    for (let i = 0; i < NR; i++) {
-      const o = document.createElement('i');
-      o.style.left = `${((i + 0.5) / NR) * 100}%`;
-      host.appendChild(o);
-    }
-  };
-
-  const buildSheet = () => {
-    if (!bookRef.current || !pgLoginRef.current) return null;
-    const W = bookRef.current.offsetWidth || 340;
-    const hl = bookRef.current.offsetHeight || 520;
-    const H = hl / N;
-
-    const root = document.createElement('div');
-    root.className = 'nb-flip';
-    const strips: { s: HTMLElement; f: HTMLElement; b: HTMLElement; shF: HTMLElement; shB: HTMLElement }[] = [];
-    let parent: HTMLElement = root;
-
-    for (let i = 0; i < N; i++) {
-      const s = document.createElement('div');
-      s.className = 'nb-strip';
-      s.style.top = `${i === 0 ? 0 : H}px`;
-      s.style.height = `${H}px`;
-
-      // Mặt trước: bản sao trang đăng nhập, cắt đúng dải i
-      const f = document.createElement('div');
-      f.className = 'nb-face front';
-      f.style.height = `${H + 1}px`;
-
-      const c = pgLoginRef.current.cloneNode(true) as HTMLElement;
-      c.removeAttribute('id');
-      c.setAttribute('inert', '');
-      c.setAttribute('aria-hidden', 'true');
-      c.querySelectorAll('[id]').forEach((el) => el.removeAttribute('id'));
-
-      const src = pgLoginRef.current.querySelectorAll('input');
-      const dst = c.querySelectorAll('input');
-      dst.forEach((d, k) => {
-        if (src[k]) {
-          d.value = src[k].value;
-          d.checked = src[k].checked;
-        }
-      });
-
-      Object.assign(c.style, {
-        position: 'absolute',
-        inset: 'auto',
-        left: '0',
-        top: `${-i * H}px`,
-        width: `${W}px`,
-        height: `${hl}px`,
-      });
-
-      const shF = document.createElement('div');
-      shF.className = 'nb-sh';
-      f.append(c, shF);
-
-      // Mặt sau: giấy trắng kẻ dòng, dải đầu có lỗ đục sát lò xo
-      const b = document.createElement('div');
-      b.className = 'nb-face back';
-      b.style.height = `${H + 1}px`;
-      b.style.backgroundImage = 'linear-gradient(to bottom, transparent 31px, var(--nb-line) 31px 32px)';
-      b.style.backgroundSize = '100% 32px';
-      b.style.backgroundPosition = `0 ${TOP - i * H}px`;
-
-      if (i === 0) {
-        const h = document.createElement('div');
-        h.className = 'nb-holes';
-        makeHoles(h);
-        b.appendChild(h);
-      }
-
-      const shB = document.createElement('div');
-      shB.className = 'nb-sh';
-      b.appendChild(shB);
-
-      s.append(f, b);
-      parent.appendChild(s);
-      parent = s;
-      strips.push({ s, f, b, shF, shB });
-    }
-
-    root.addEventListener('click', () => go('login'));
-    return { root, strips };
-  };
-
-  const pose = (e: number) => {
-    let prev = 0;
-    const hl = bookRef.current?.offsetHeight || 520;
-    const H = hl / N;
-    let y = 0; // Cumulative tip position
-
-    // smoothstep((e - 0.55) / 0.4)
-    const fadeT = Math.min(1, Math.max(0, (e - 0.55) / 0.4));
-    const fadeOn = fadeT * fadeT * (3 - 2 * fadeT);
-
-    stripsRef.current.forEach((o, i) => {
-      const u = (i + 0.5) / N;
-      const ep = Math.min(1, Math.max(0, e * (1 + LEAD) - LEAD * (1 - u)));
-      const phi = ep * 180;
-      o.s.style.transform = `rotateX(${phi - prev}deg)`;
-      prev = phi;
-
-      const rad = (phi * Math.PI) / 180;
-      const sn = Math.sin(rad);
-      o.shF.style.opacity = (0.42 * sn).toFixed(3);
-      o.shB.style.opacity = (0.2 * sn).toFixed(3);
-
-      // Height of strip tip: H * cos(phi)
-      y += H * Math.cos(rad);
-
-      // vis = clamp((y + 84 + 60) / 60, 0, 1)
-      const vis = Math.min(1, Math.max(0, (y + 84 + 60) / 60));
-      const op = 1 - fadeOn * (1 - vis);
-
-      o.f.style.opacity = op.toFixed(3);
-      o.b.style.opacity = op.toFixed(3);
-      const isInteractable = op >= 0.05;
-      o.f.style.pointerEvents = isInteractable ? 'auto' : 'none';
-      o.b.style.pointerEvents = isInteractable ? 'auto' : 'none';
-    });
-    if (shadeRef.current) {
-      shadeRef.current.style.opacity = Math.max(0, 1 - e * 1.15).toFixed(3);
-    }
-  };
-
-  const mount = (e: number) => {
-    const res = buildSheet();
-    if (!res || !bookRef.current) return;
-    sheetRootRef.current = res.root;
-    stripsRef.current = res.strips;
-    bookRef.current.appendChild(res.root);
-    pose(e);
-  };
-
-  const unmount = () => {
-    if (sheetRootRef.current) {
-      sheetRootRef.current.remove();
-      sheetRootRef.current = null;
-    }
-    stripsRef.current = [];
-    if (shadeRef.current) shadeRef.current.style.opacity = '0';
-  };
-
-  const updateState = (next: 'login' | 'register') => {
-    setState(next);
-    const isLogin = next === 'login';
-    if (pgLoginRef.current) {
-      if (isLogin) pgLoginRef.current.removeAttribute('inert');
-      else pgLoginRef.current.setAttribute('inert', '');
-    }
-    if (pgRegRef.current) {
-      if (isLogin) pgRegRef.current.setAttribute('inert', '');
-      else pgRegRef.current.removeAttribute('inert');
-    }
-    if (leafRef.current) {
-      leafRef.current.style.visibility = isLogin ? 'visible' : 'hidden';
-    }
-    if (sheetRootRef.current) {
-      sheetRootRef.current.classList.toggle('settled', !isLogin);
-    }
-    setTimeout(() => {
-      if (isLogin) loginInputRef.current?.focus();
-      else regInputRef.current?.focus();
-    }, 30);
-  };
-
-  const go = (target: 'login' | 'register') => {
-    if (busy || authBusy || target === state) return;
-    const forward = target === 'register';
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduce) {
-      if (forward) {
-        unmount();
-        mount(1);
-      } else unmount();
-      updateState(target);
-      return;
-    }
-
+  const handleSubmit = async (action: () => Promise<void>) => {
+    if (busy || submissionRef.current) return;
+    submissionRef.current = true;
+    setError('');
     setBusy(true);
-
-    if (forward) {
-      unmount();
-      mount(0);
-    }
-    if (sheetRootRef.current) sheetRootRef.current.classList.remove('settled');
-    if (leafRef.current) leafRef.current.style.visibility = 'hidden';
-    pgLoginRef.current?.setAttribute('inert', '');
-    pgRegRef.current?.setAttribute('inert', '');
-
-    const from = forward ? 0 : 1;
-    const to = forward ? 1 : 0;
-    const t0 = performance.now();
-
-    function frame(now: number) {
-      const t = Math.min(1, (now - t0) / DUR);
-      pose(from + (to - from) * ease(t));
-      if (t < 1) {
-        requestAnimationFrame(frame);
-        return;
-      }
-      if (!forward) unmount();
-      updateState(target);
+    try {
+      await action();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Demo error');
+    } finally {
+      submissionRef.current = false;
       setBusy(false);
     }
-
-    requestAnimationFrame(frame);
   };
 
   return (
-    <div className="nb-auth-viewport">
-      {error && <div className="demo-auth-error" role="alert">{t(error)}</div>}
-      {authBusy && <div className="demo-auth-loading"><SpendWiseSLoading size={110} label={t("Đang xác thực Demo…")} /></div>}
-      {/* SVG Symbols matching notebook-auth.html */}
-      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
-        <symbol id="nb-i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="8" r="4" />
-          <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-        </symbol>
-        <symbol id="nb-i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="5" width="18" height="14" rx="3" />
-          <path d="m4 7 8 6 8-6" />
-        </symbol>
-        <symbol id="nb-i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
-        </symbol>
-        <symbol id="nb-i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="4" y="10" width="16" height="11" rx="3" />
-          <path d="M8 10V7a4 4 0 0 1 8 0v3" />
-        </symbol>
-        <symbol id="nb-i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
-          <circle cx="12" cy="12" r="3" />
-        </symbol>
-        <symbol id="nb-i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6" />
-        </symbol>
-        <symbol id="nb-i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" />
-        </symbol>
-        <symbol id="nb-i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="9" />
-          <path d="m8 12 3 3 5-6" />
-        </symbol>
-      </svg>
+    <div className="w-full max-w-[390px] mx-auto relative px-2 py-3">
+      {/* S-Loading Indicator when busy */}
+      {busy && (
+        <div className="demo-auth-loading">
+          <SpendWiseSLoading />
+        </div>
+      )}
 
-      {/* CUỐN SỔ TAY */}
-      <main className="nb-book" ref={bookRef}>
-        {/* BÌA DA XANH ĐẬM */}
-        <div className="nb-board">
-          <i className="nb-corner tl" />
-          <i className="nb-corner tr" />
-          <i className="nb-corner bl" />
-          <i className="nb-corner br" />
+      {/* Main Glassmorphic Auth Card */}
+      <div className="relative rounded-3xl p-6 sm:p-7 bg-white/80 dark:bg-[#12282c]/80 backdrop-blur-2xl border border-emerald-900/10 dark:border-emerald-400/15 shadow-[0_16px_40px_-12px_rgba(6,78,59,0.18)] transition-all">
+        {/* Header */}
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-emerald-100 tracking-tight">
+            {mode === 'login' ? t('Đăng nhập SpendWise', 'Welcome Back') : t('Đăng ký tài khoản', 'Create Account')}
+          </h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5">
+            {mode === 'login'
+              ? t('Quản lý tài chính thông minh trong tầm tay', 'Manage your finances with intelligent clarity')
+              : t('Bắt đầu hành trình tài chính cá nhân hiện đại', 'Start your journey to financial freedom')}
+          </p>
         </div>
 
-        {/* CÁC LỚP GIẤY XẾP CHỒNG (STACK) */}
-        <div className="nb-stack s1" />
-        <div className="nb-stack s2" />
-        <div className="nb-stack s3" />
-
-        {/* TRANG ĐĂNG KÝ (NẰM DƯỚI) */}
-        <section
-          ref={pgRegRef}
-          className="nb-page"
-          aria-label={t("Trang đăng ký")}
-          {...(state !== 'register' ? { inert: true } : {})}
-        >
-          <div className="nb-holes">
-            {Array.from({ length: 9 }).map((_, i) => (
-              <i key={i} style={{ left: `${((i + 0.5) / 9) * 100}%` }} />
-            ))}
+        {/* Error message */}
+        {error && (
+          <div className="mb-4 p-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/40 text-rose-600 dark:text-rose-300 text-xs">
+            {error}
           </div>
-          <div className="nb-inner">
-            <div className="nb-head">
-              <h2>
-                <svg><use href="#nb-i-check" /></svg>
-                {t("Tạo trang sổ mới")}</h2>
-            </div>
-            <form
-              autoComplete="on"
-              onSubmit={(e) => {
-                e.preventDefault();
-                void submit(async()=>{await onRegister?.(regName,regEmail,regPhone,regPass,regConfirm);});
-              }}
-            >
-              <div className="nb-field">
-                <label htmlFor="nb-r-name">{t("Họ và tên")}</label>
-                <div className="nb-input">
-                  <svg><use href="#nb-i-user" /></svg>
-                  <input
-                    id="nb-r-name"
-                    ref={regInputRef}
-                    value={regName}
-                    onChange={(e) => setRegName(e.target.value)}
-                    autoComplete="name"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="nb-field">
-                <label htmlFor="nb-r-email">Email</label>
-                <div className="nb-input">
-                  <svg><use href="#nb-i-mail" /></svg>
-                  <input
-                    id="nb-r-email"
-                    type="email"
-                    value={regEmail}
-                    onChange={(e) => setRegEmail(e.target.value)}
-                    autoComplete="email"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="nb-field">
-                <label htmlFor="nb-r-phone">{t("Số điện thoại")}</label>
-                <div className="nb-input">
-                  <svg><use href="#nb-i-phone" /></svg>
-                  <input
-                    id="nb-r-phone"
-                    type="tel"
-                    value={regPhone}
-                    onChange={(e) => setRegPhone(e.target.value)}
-                    autoComplete="tel"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="nb-field">
-                <label htmlFor="nb-r-pass">{t("Mật khẩu")}</label>
-                <div className="nb-input">
-                  <svg><use href="#nb-i-lock" /></svg>
-                  <input
-                    id="nb-r-pass"
-                    type={showRegPass ? 'text' : 'password'}
-                    value={regPass}
-                    onChange={(e) => setRegPass(e.target.value)}
-                    autoComplete="new-password"
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="nb-eye"
-                    aria-label={t("Hiện mật khẩu")}
-                    onClick={() => setShowRegPass(!showRegPass)}
-                  >
-                    <svg width="17" height="17"><use href="#nb-i-eye" /></svg>
-                  </button>
-                </div>
-              </div>
+        )}
 
-              <div className="nb-field"><label htmlFor="nb-r-confirm">{t("Xác nhận mật khẩu / Confirm password")}</label><div className="nb-input"><svg><use href="#nb-i-lock" /></svg><input id="nb-r-confirm" type="password" value={regConfirm} onChange={e=>setRegConfirm(e.target.value)} autoComplete="new-password" required /></div></div>
-              <button className="nb-btn" type="submit" disabled={busy||authBusy}>
-                {t("Tạo sổ chi tiêu SpendWise")}<svg width="16" height="16"><use href="#nb-i-arrow" /></svg>
-              </button>
-            </form>
-
-            <p className="nb-alt">{t("Đã có tài khoản?")}</p>
-            <button
-              type="button"
-              className="nb-btn-gold"
-              disabled={busy||authBusy}
-              onClick={() => go('login')}
-            >
-              <svg width="15" height="15" style={{ transform: 'rotate(90deg)' }}>
-                <use href="#nb-i-arrow" />
-              </svg>
-              {t("ĐĂNG NHẬP NGAY")}</button>
-          </div>
-        </section>
-
-        {/* LỚP BÓNG ĐỔ LÊN TRANG DƯỚI */}
-        <div className="nb-under-shade" ref={shadeRef} />
-
-        {/* TRANG ĐĂNG NHẬP (NẰM TRÊN, SẼ LẬT LÊN) */}
-        <div className="nb-leaf" ref={leafRef}>
-          <section
-            ref={pgLoginRef}
-            className="nb-page"
-            aria-label={t("Trang đăng nhập")}
-            {...(state !== 'login' ? { inert: true } : {})}
+        {/* Tab Switcher */}
+        <div className="grid grid-cols-2 p-1 mb-6 rounded-xl bg-slate-100 dark:bg-slate-800/60 border border-slate-200/60 dark:border-white/5 text-xs font-semibold">
+          <button
+            type="button"
+            className={`py-2 rounded-lg transition-all ${
+              mode === 'login'
+                ? 'bg-white dark:bg-emerald-800/40 text-emerald-700 dark:text-emerald-200 shadow-xs'
+                : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
+            }`}
+            onClick={() => { setMode('login'); setError(''); }}
           >
-            <div className="nb-holes">
-              {Array.from({ length: 9 }).map((_, i) => (
-                <i key={i} style={{ left: `${((i + 0.5) / 9) * 100}%` }} />
-              ))}
-            </div>
-            <div className="nb-inner">
-              <div className="nb-head">
-                <h2>
-                  <svg><use href="#nb-i-spark" /></svg>
-                  {t("Mở sổ chi tiêu")}</h2>
+            {t('Đăng nhập', 'Sign In')}
+          </button>
+          <button
+            type="button"
+            className={`py-2 rounded-lg transition-all ${
+              mode === 'register'
+                ? 'bg-white dark:bg-emerald-800/40 text-emerald-700 dark:text-emerald-200 shadow-xs'
+                : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
+            }`}
+            onClick={() => { setMode('register'); setError(''); }}
+          >
+            {t('Đăng ký', 'Register')}
+          </button>
+        </div>
+
+        {/* LOGIN FORM */}
+        {mode === 'login' && (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              void handleSubmit(async () => {
+                await onLogin?.(loginId, loginPass);
+              });
+            }}
+            className="space-y-4"
+          >
+            <div>
+              <label className="block text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-1.5">
+                {t('Email hoặc số điện thoại', 'Email or Phone')}
+              </label>
+              <div className="relative flex items-center">
+                <Mail className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type="text"
+                  value={loginId}
+                  onChange={(e) => setLoginId(e.target.value)}
+                  required
+                  placeholder="a@spendwise.demo"
+                  className="w-full h-11 pl-10 pr-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all font-medium"
+                />
               </div>
-              <form
-                autoComplete="on"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  void submit(async()=>{await onLogin?.(loginId,loginPass);});
-                }}
-              >
-                <div className="nb-field">
-                  <label htmlFor="nb-l-id">{t("Email hoặc số điện thoại")}</label>
-                  <div className="nb-input">
-                    <svg><use href="#nb-i-mail" /></svg>
-                    <input
-                      id="nb-l-id"
-                      ref={loginInputRef}
-                      value={loginId}
-                      onChange={(e) => setLoginId(e.target.value)}
-                      autoComplete="username"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="nb-field">
-                  <label htmlFor="nb-l-pass">{t("Mật khẩu")}</label>
-                  <div className="nb-input">
-                    <svg><use href="#nb-i-lock" /></svg>
-                    <input
-                      id="nb-l-pass"
-                      type={showLoginPass ? 'text' : 'password'}
-                      value={loginPass}
-                      onChange={(e) => setLoginPass(e.target.value)}
-                      autoComplete="current-password"
-                      required
-                    />
-                    <button
-                      type="button"
-                      className="nb-eye"
-                      aria-label={t("Hiện mật khẩu")}
-                      onClick={() => setShowLoginPass(!showLoginPass)}
-                    >
-                      <svg width="17" height="17"><use href="#nb-i-eye" /></svg>
-                    </button>
-                  </div>
-                </div>
+            </div>
 
-                <div className="nb-row">
-                  <label className="nb-remember">
-                    <input
-                      type="checkbox"
-                      checked={remember}
-                      onChange={(e) => setRemember(e.target.checked)}
-                    />
-                    {t("Ghi nhớ phiên đăng nhập")}</label>
-                  <button type="button" className="nb-link" onClick={onForgot}>
-                    {t("Quên mật khẩu?")}</button>
-                </div>
-
-                <button className="nb-btn" type="submit" disabled={busy||authBusy}>
-                  {t("Đăng nhập vào SpendWise")}<svg width="16" height="16"><use href="#nb-i-arrow" /></svg>
+            <div>
+              <label className="block text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-1.5">
+                {t('Mật khẩu', 'Password')}
+              </label>
+              <div className="relative flex items-center">
+                <Lock className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type={showLoginPass ? 'text' : 'password'}
+                  value={loginPass}
+                  onChange={(e) => setLoginPass(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  className="w-full h-11 pl-10 pr-11 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all font-medium"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowLoginPass(!showLoginPass)}
+                  className="absolute right-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
+                  aria-label={t('Hiện mật khẩu', 'Show password')}
+                >
+                  {showLoginPass ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
-              </form>
+              </div>
+            </div>
 
-              <p className="nb-alt">{t("Chưa có tài khoản?")}</p>
+            <div className="flex items-center justify-between text-xs pt-1">
+              <label className="flex items-center gap-2 cursor-pointer text-slate-600 dark:text-slate-300">
+                <input
+                  type="checkbox"
+                  checked={remember}
+                  onChange={(e) => setRemember(e.target.checked)}
+                  className="h-3.5 w-3.5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
+                />
+                <span>{t('Ghi nhớ', 'Remember')}</span>
+              </label>
               <button
                 type="button"
-                className="nb-btn-gold"
-                disabled={busy||authBusy}
-                onClick={() => go('register')}
+                onClick={onForgot}
+                className="font-medium text-emerald-600 dark:text-emerald-400 hover:underline"
               >
-                {t("ĐĂNG KÝ NGAY")}<svg width="15" height="15" style={{ transform: 'rotate(-90deg)' }}>
-                  <use href="#nb-i-arrow" />
-                </svg>
+                {t('Quên mật khẩu?', 'Forgot password?')}
               </button>
             </div>
-          </section>
-        </div>
 
-        {/* 9 VÒNG LÒ XO */}
-        <div className="nb-rings">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <div key={i} className="nb-ring" style={{ left: `${((i + 0.5) / 9) * 100}%` }} />
-          ))}
-        </div>
-      </main>
+            <button
+              type="submit"
+              disabled={busy}
+              className="w-full h-11 mt-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-[0.99] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-[0_8px_20px_-4px_rgba(5,150,105,0.4)] transition-all cursor-pointer"
+            >
+              <span>{t('Đăng nhập vào SpendWise', 'Sign In to SpendWise')}</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </form>
+        )}
+
+        {/* REGISTER FORM */}
+        {mode === 'register' && (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              void handleSubmit(async () => {
+                await onRegister?.(regName, regEmail, regPhone, regPass, regConfirm);
+              });
+            }}
+            className="space-y-3.5"
+          >
+            <div>
+              <label className="block text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-1">
+                {t('Họ và tên', 'Full Name')}
+              </label>
+              <div className="relative flex items-center">
+                <User className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type="text"
+                  value={regName}
+                  onChange={(e) => setRegName(e.target.value)}
+                  required
+                  placeholder="Nguyễn Văn An"
+                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all font-medium"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-1">
+                {t('Email', 'Email')}
+              </label>
+              <div className="relative flex items-center">
+                <Mail className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type="email"
+                  value={regEmail}
+                  onChange={(e) => setRegEmail(e.target.value)}
+                  required
+                  placeholder="an.nguyen@spendwise.demo"
+                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all font-medium"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-1">
+                {t('Số điện thoại', 'Phone Number')}
+              </label>
+              <div className="relative flex items-center">
+                <Phone className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type="tel"
+                  value={regPhone}
+                  onChange={(e) => setRegPhone(e.target.value)}
+                  required
+                  placeholder="0912345678"
+                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all font-medium"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-1">
+                {t('Mật khẩu', 'Password')}
+              </label>
+              <div className="relative flex items-center">
+                <Lock className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type={showRegPass ? 'text' : 'password'}
+                  value={regPass}
+                  onChange={(e) => setRegPass(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  className="w-full h-10 pl-10 pr-11 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all font-medium"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowRegPass(!showRegPass)}
+                  className="absolute right-3 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1"
+                >
+                  {showRegPass ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-semibold tracking-wider uppercase text-slate-500 dark:text-slate-400 mb-1">
+                {t('Xác nhận mật khẩu', 'Confirm Password')}
+              </label>
+              <div className="relative flex items-center">
+                <Lock className="absolute left-3.5 h-4 w-4 text-slate-400 pointer-events-none" />
+                <input
+                  type={showRegPass ? 'text' : 'password'}
+                  value={regConfirm}
+                  onChange={(e) => setRegConfirm(e.target.value)}
+                  required
+                  placeholder="••••••••"
+                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-white/70 dark:bg-slate-900/50 border border-slate-200 dark:border-white/10 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 transition-all font-medium"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={busy}
+              className="w-full h-11 mt-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-[0.99] text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-[0_8px_20px_-4px_rgba(5,150,105,0.4)] transition-all cursor-pointer"
+            >
+              <span>{t('ĐĂNG KÝ NGAY', 'Create Account')}</span>
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </form>
+        )}
+      </div>
     </div>
   );
 };

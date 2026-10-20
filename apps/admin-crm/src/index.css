@@ -123,7 +123,7 @@
 }
 
 /* Đèn bàn ấm áp rọi xuống khu vực làm việc (Desk Lamp Pool) */
-.desk-lamp-glow-overlay {
+.desk-lamp-glow-overlay { display: none !important;
   position: absolute;
   inset: 0;
   background: var(--desk-lamp-glow);
@@ -133,7 +133,7 @@
 }
 
 /* Độ tối ngoại vi xung quanh mặt bàn (Desk Edge Vignette) */
-.desk-wood-vignette {
+.desk-wood-vignette { display: none !important;
   position: absolute;
   inset: 0;
   background: var(--desk-vignette);
@@ -143,7 +143,7 @@
 }
 
 /* Thảm lót bàn da cao cấp (Executive Leather Desk Blotter Mat) */
-.desk-leather-mat {
+.desk-leather-mat { display: none !important;
   position: absolute;
   inset: -6px -28px -12px -28px;
   border-radius: 28px;
@@ -169,7 +169,7 @@
 }
 
 @media (max-width: 1023px) {
-  .desk-leather-mat {
+  .desk-leather-mat { display: none !important;
     inset: -2px -6px -6px -6px;
     border-radius: 24px;
   }
@@ -203,7 +203,7 @@
 }
 
 /* Outer Notebook Leather Cover Base */
-.notebook-leather-cover {
+.notebook-leather-cover { display: none !important;
   position: absolute;
   inset: 2px 6px;
   border-radius: 24px;
@@ -219,7 +219,7 @@
 
 .light .notebook-leather-cover,
 html.light .notebook-leather-cover,
-:root:not(.dark) .notebook-leather-cover {
+:root:not(.dark) .notebook-leather-cover { display: none !important;
   background: linear-gradient(140deg, #442d1e 0%, #2f1d12 45%, #1f1109 100%);
   box-shadow: 
     0 30px 70px -15px rgba(35, 20, 10, 0.45),
@@ -281,7 +281,7 @@ html.light .notebook-leather-cover,
 }
 
 /* Quai cài bút da sổ tay (Pen Holder Loop) ở mép phải */
-.notebook-pen-loop {
+.notebook-pen-loop { display: none !important;
   position: absolute;
   right: -4px;
   top: 50%;
@@ -301,7 +301,7 @@ html.light .notebook-leather-cover,
 
 .light .notebook-pen-loop,
 html.light .notebook-pen-loop,
-:root:not(.dark) .notebook-pen-loop {
+:root:not(.dark) .notebook-pen-loop { display: none !important;
   background: linear-gradient(to right, #3d2719, #25160d);
   box-shadow: 3px 2px 8px rgba(35, 20, 10, 0.35);
 }
@@ -330,7 +330,7 @@ html.light .notebook-pen-loop,
 }
 
 /* Dây ruy-băng lụa đánh dấu trang sổ (Satin Bookmark Ribbon) kẹp ở trang Đăng nhập */
-.notebook-ribbon-bookmark {
+.notebook-ribbon-bookmark { display: none !important;
   position: absolute;
   left: calc(50% + 22px);
   top: -10px;
@@ -369,7 +369,7 @@ html.light .notebook-pen-loop,
 
 .light .notebook-ribbon-bookmark,
 html.light .notebook-ribbon-bookmark,
-:root:not(.dark) .notebook-ribbon-bookmark {
+:root:not(.dark) .notebook-ribbon-bookmark { display: none !important;
   background: linear-gradient(
     to right,
     #065f46 0%,
@@ -388,7 +388,7 @@ html.light .notebook-ribbon-bookmark,
    - Đỉnh ruy-băng nhô lên tự nhiên tại đỉnh gáy sổ (top: -10px).
    - Thân ruy-băng nằm êm ái bên trong giữa 2 trang giấy.
 */
-.auth-container.active .notebook-ribbon-bookmark {
+.auth-container.active .notebook-ribbon-bookmark { display: none !important;
   box-shadow: 
     1px 3px 8px rgba(0, 0, 0, 0.5),
     inset 0 0 3px rgba(0, 0, 0, 0.35);
@@ -396,7 +396,7 @@ html.light .notebook-ribbon-bookmark,
 
 .light .auth-container.active .notebook-ribbon-bookmark,
 html.light .auth-container.active .notebook-ribbon-bookmark,
-:root:not(.dark) .auth-container.active .notebook-ribbon-bookmark {
+:root:not(.dark) .auth-container.active .notebook-ribbon-bookmark { display: none !important;
   box-shadow: 
     1px 3px 8px rgba(35, 20, 10, 0.35),
     inset 0 0 3px rgba(0, 0, 0, 0.25);
@@ -524,7 +524,7 @@ html.light .auth-container::after,
 }
 
 /* ================= NOTEBOOK SPINE RING BINDER (CÒNG SỔ LÒ XO KIM LOẠI) ================= */
-.notebook-spine-rings {
+.notebook-spine-rings { display: none !important;
   position: absolute;
   left: 50%;
   top: 0;
@@ -903,11 +903,11 @@ html.light .auth-toggle-panel.toggle-right,
     padding: 24px 16px;
   }
 
-  .notebook-pen-loop {
+  .notebook-pen-loop { display: none !important;
     display: none;
   }
 
-  .notebook-ribbon-bookmark {
+  .notebook-ribbon-bookmark { display: none !important;
     left: calc(50% + 14px);
     width: 13px;
     top: -8px;
@@ -929,7 +929,7 @@ html.light .auth-toggle-panel.toggle-right,
     padding: 20px 12px;
   }
 
-  .notebook-ribbon-bookmark {
+  .notebook-ribbon-bookmark { display: none !important;
     left: calc(50% + 11px);
     width: 10px;
     top: -6px;
@@ -968,7 +968,7 @@ html.light .auth-toggle-panel.toggle-right,
 /* ================= DESK STATIONERY PENS (BÚT TO ĐẶT NGOÀI CUỐN SỔ) ================= */
 
 /* Vùng chứa các bút bên ngoài cuốn sổ */
-.desk-stationery-item {
+.desk-stationery-item { display: none !important;
   position: absolute;
   pointer-events: auto;
   user-select: none;
