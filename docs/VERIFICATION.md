@@ -50,3 +50,5 @@ Repository was empty before initialization. Source and real PNG evidence are pus
 - Browser code uses public demo credentials and localStorage. It is a simulation and is not a secure authentication or financial system.
 - TikTok video frames were unavailable: `VIDEO_REFERENCE_UNAVAILABLE`.
 - No Backend reference source was modified.
+
+Admin follow-up: inline support ticket reply and assignment, maintenance plan edit and the existing broadcast/restriction regression passed in Chrome. ADM-03 uses ticket list/conversation/action columns; ADM-04 adds three KPI cards and a four-column delivery table. PNGs are under `img/admin-*.png`.

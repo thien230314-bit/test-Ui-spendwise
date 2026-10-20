@@ -89,7 +89,7 @@ export function Skeleton({ kind = 'ai' }: { kind?: string }) {
       case 'support': content=<>{title}{filters}{panel(<>{lines(3)}</>)}</>;break;
       case 'admin-users': content=<>{title}{panel(<>{filters}{table(5)}{filters}</>)}</>;break;
       case 'admin-support': content=<>{title}{filters}<div className="sk-support">{panel(<>{title}{lines(4)}</>)}{panel(<>{title}<div className="sk-chat"><Sk/><Sk/><Sk/></div>{filters}</>)}{panel(<>{title}{lines(2)}{filters}</>)}</div></>;break;
-      case 'admin-notifications': content=<>{title}<div className="sk-kpis">{[0,1,2].map(i=><div className="sk-panel" key={i}>{title}<Sk className="sk-amount"/></div>)}</div>{panel(<>{filters}{table(4)}</>)}</>;break;
+      case 'admin-notifications': content=<>{title}<div className="sk-kpis sk-kpis-three">{[0,1,2].map(i=><div className="sk-panel" key={i}>{title}<Sk className="sk-amount"/></div>)}</div><div className="sk-columns">{panel(<>{title}{filters}{lines(2)}</>)}{panel(<>{title}{table(4)}</>)}</div></>;break;
       case 'admin-maintenance': content=<>{title}<div className="sk-columns">{panel(<>{title}{progress}{filters}</>)}{panel(<>{title}{lines(3)}</>)}</div>{panel(<>{title}{table(3)}</>)}{panel(<>{title}{lines(2)}</>)}</>;break;
       default: content=<>{title}<div className="sk-kpis">{[0,1,2,3].map(i=><div className="sk-panel" key={i}>{title}<Sk className="sk-amount"/><Sk/></div>)}</div><div className="sk-columns">{panel(<>{title}{chart}</>)}{panel(<>{title}{lines(3)}</>)}</div><div className="sk-columns">{panel(<>{title}{lines(3)}</>)}{panel(<>{title}{lines(3)}</>)}</div></>;
     }

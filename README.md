@@ -46,6 +46,8 @@ npm test
 npm run typecheck
 npm run test:browser
 node scripts/test-social-auth.cjs
+npm run test:ui
+npm run test:admin
 npm run build
 npm run preview
 ```
@@ -71,3 +73,19 @@ Bản demo hiện chạy là **một ứng dụng Vite** trong `apps/admin-crm/`
 Source tham chiếu SpendWise: commit `6e6f66059d8d61944047b1f2cb5bcc3975b5ec85`. Hai TikTok reference không đọc được: `VIDEO_REFERENCE_UNAVAILABLE`.
 
 **Giới hạn cần biết:** đây chưa phải triển khai đầy đủ mọi nhánh nghiệp vụ V1.0. Bầu cử đang có quy trình mô phỏng rút gọn, chưa có toàn bộ tie-break/confirmation và settlement nhiều kỳ Fixed Fund. Quy tắc phân loại hiện chỉ có CRUD/trạng thái, chưa tự phân loại giao dịch. Giao dịch định kỳ ghi thủ công từng kỳ, không có tiến trình chạy nền. AI là trợ lý kịch bản, chứng từ là mô tả Demo, không upload dữ liệu thật. Các giới hạn được liệt kê trong [API-COVERAGE.md](docs/API-COVERAGE.md); không tuyên bố tương đương Backend hay hoàn thiện 100% V1.0.
+
+## Ảnh kiểm tra giao diện
+
+Ảnh PNG thực tế được lưu tại [img/](img/). Ảnh không có hậu tố `-skeleton` là giao diện đã tải xong; ảnh loading được lưu riêng để so sánh. Mỗi nhóm hoàn tất được kiểm tra và commit/push cùng ảnh, không chờ toàn bộ dự án.
+
+| Nhóm | Ảnh loaded | Ảnh loading |
+|---|---|---|
+| User Dashboard | [Dashboard](img/user-dashboard.png) | [Skeleton](img/user-dashboard-skeleton.png) |
+| Wallet | [Ví](img/user-wallet.png) | [Skeleton](img/user-wallet-skeleton.png) |
+| Fixed / Free | [Fixed](img/user-fixed-fund.png), [Free](img/user-free-fund.png) | [Fixed](img/user-fixed-fund-skeleton.png), [Free](img/user-free-fund-skeleton.png) |
+| Admin Users | [Bảng dữ liệu](img/admin-users.png) | [Skeleton 5 cột](img/admin-users-skeleton.png) |
+| Admin Support | [Ticket / hội thoại / thao tác](img/admin-support.png) | [Skeleton](img/admin-support-skeleton.png) |
+| Admin Notifications | [KPI / bảng thông báo](img/admin-notifications.png) | [Skeleton](img/admin-notifications-skeleton.png) |
+| Admin Maintenance | [Bảo trì](img/admin-maintenance.png) | [Skeleton](img/admin-maintenance-skeleton.png) |
+
+[Admin Login](img/admin-login.png) · [Thành công](img/user-transfer-success.png) · [Thất bại](img/user-transfer-failure.png).
