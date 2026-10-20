@@ -97,14 +97,14 @@ Source tham chiếu SpendWise: commit `6e6f66059d8d61944047b1f2cb5bcc3975b5ec85`
 
 | Nhóm | Ảnh loaded | Ảnh loading |
 |---|---|---|
-| User Dashboard | [Dashboard](img/user-dashboard.png) | [Skeleton](img/user-dashboard-skeleton.png) |
-| Wallet | [Ví](img/user-wallet.png) | [Skeleton](img/user-wallet-skeleton.png) |
-| Fixed / Free | [Fixed](img/user-fixed-fund.png), [Free](img/user-free-fund.png) | [Fixed](img/user-fixed-fund-skeleton.png), [Free](img/user-free-fund-skeleton.png) |
-| Admin Users | [Bảng dữ liệu](img/admin-users.png) | [Skeleton 5 cột](img/admin-users-skeleton.png) |
-| Admin Support | [Ticket / hội thoại / thao tác](img/admin-support.png) | [Skeleton](img/admin-support-skeleton.png) |
-| Admin Notifications | [KPI / bảng thông báo](img/admin-notifications.png) | [Skeleton](img/admin-notifications-skeleton.png) |
-| Admin Maintenance | [Bảo trì](img/admin-maintenance.png) | [Skeleton](img/admin-maintenance-skeleton.png) |
+| User Dashboard | [Dashboard](img/user/dashboard.png) | [Skeleton](img/user-dashboard-skeleton.png) |
+| Wallet | [Ví](img/user/wallet.png) | [Skeleton](img/user-wallet-skeleton.png) |
+| Fixed / Free | [Fixed](img/user/fixed-fund.png), [Free](img/user/free-fund.png) | [Fixed](img/user-fixed-fund-skeleton.png), [Free](img/user-free-fund-skeleton.png) |
+| Admin Users | [Bảng dữ liệu](img/admin/users.png) | [Skeleton 5 cột](img/admin-users-skeleton.png) |
+| Admin Support | [Ticket / hội thoại / thao tác](img/admin/support.png) | [Skeleton](img/admin-support-skeleton.png) |
+| Admin Notifications | [KPI / bảng thông báo](img/admin/notifications.png) | [Skeleton](img/admin-notifications-skeleton.png) |
+| Admin Maintenance | [Bảo trì](img/admin/maintenance.png) | [Skeleton](img/admin-maintenance-skeleton.png) |
 
-[Admin Login](img/admin-login.png) · [Thành công](img/user-transfer-success.png) · [Thất bại](img/user-transfer-failure.png).
+[Admin Login](img/admin/login.png) · [Thành công](img/user/transfer-success.png) · [Thất bại](img/user-transfer-failure.png).
 
 Ảnh trạng thái bổ sung: [Auth S](img/user-auth-s-loading.png), [OTP lỗi](img/user-otp-error.png), [đăng ký hoàn tất](img/user-registration-complete.png), [Pending](img/user-withdraw-pending.png), [AI hội thoại](img/user-ai-conversation.png), [Admin Login Dark](img/admin-login-dark.png).
