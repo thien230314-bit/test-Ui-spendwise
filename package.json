@@ -17,6 +17,7 @@
     "test:feedback": "node scripts/test-feedback.cjs",
     "test:ux": "node scripts/test-ux-quality.cjs",
     "test:user-ui": "node scripts/test-user-polish.cjs",
-    "test:admin-ui": "node scripts/test-admin-polish.cjs"
+    "test:admin-ui": "node scripts/test-admin-polish.cjs",
+    "test:auth-ui": "node scripts/test-auth-locale.cjs"
   }
 }

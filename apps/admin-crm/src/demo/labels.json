@@ -662,5 +662,237 @@
   "Invalid preferences": [
     "Tùy chọn không hợp lệ",
     "Invalid preferences"
+  ],
+  "wallet.create": [
+    "Tạo ví",
+    "Create wallet"
+  ],
+  "wallet.rename": [
+    "Đổi tên ví",
+    "Rename wallet"
+  ],
+  "wallet.close": [
+    "Đóng ví",
+    "Close wallet"
+  ],
+  "transfer": [
+    "Chuyển tiền",
+    "Transfer"
+  ],
+  "internal": [
+    "Chuyển giữa các ví",
+    "Transfer between wallets"
+  ],
+  "transaction.create": [
+    "Ghi thu chi",
+    "Record income or expense"
+  ],
+  "friend.invite": [
+    "Gửi lời mời kết bạn",
+    "Send friend request"
+  ],
+  "friend.respond": [
+    "Phản hồi lời mời",
+    "Respond to invitation"
+  ],
+  "friend.remove": [
+    "Hủy kết nối",
+    "Remove connection"
+  ],
+  "fund.create": [
+    "Tạo quỹ",
+    "Create fund"
+  ],
+  "fund.invite": [
+    "Mời thành viên",
+    "Invite member"
+  ],
+  "fund.join": [
+    "Tham gia quỹ",
+    "Join fund"
+  ],
+  "fund.contribute": [
+    "Góp quỹ",
+    "Contribute to fund"
+  ],
+  "fund.request": [
+    "Tạo yêu cầu chi hoặc rút",
+    "Create expense or withdrawal request"
+  ],
+  "fund.review": [
+    "Duyệt yêu cầu quỹ",
+    "Review fund request"
+  ],
+  "fund.report": [
+    "Báo cáo khoản chi",
+    "Report expense"
+  ],
+  "fund.leave": [
+    "Rời quỹ",
+    "Leave fund"
+  ],
+  "fund.dissolve": [
+    "Giải tán quỹ",
+    "Dissolve fund"
+  ],
+  "fund.owner": [
+    "Đề nghị chuyển chủ",
+    "Offer ownership"
+  ],
+  "fund.owner.accept": [
+    "Nhận quyền chủ quỹ",
+    "Accept fund ownership"
+  ],
+  "fund.permission": [
+    "Đổi quyền thành viên",
+    "Change member permission"
+  ],
+  "election.open": [
+    "Mở bầu cử",
+    "Open election"
+  ],
+  "election.nominate": [
+    "Ứng cử",
+    "Nominate candidate"
+  ],
+  "election.vote": [
+    "Bỏ phiếu",
+    "Cast ballot"
+  ],
+  "election.advance": [
+    "Chuyển giai đoạn bầu cử",
+    "Advance election phase"
+  ],
+  "election.accept": [
+    "Nhận quyền sau bầu cử",
+    "Accept elected ownership"
+  ],
+  "election.reject": [
+    "Từ chối quyền sau bầu cử",
+    "Decline elected ownership"
+  ],
+  "item.save": [
+    "Lưu mục kế hoạch",
+    "Save planning item"
+  ],
+  "item.delete": [
+    "Xóa mục kế hoạch",
+    "Delete planning item"
+  ],
+  "item.toggle": [
+    "Đổi trạng thái mục kế hoạch",
+    "Toggle planning item"
+  ],
+  "goal.move": [
+    "Phân bổ mục tiêu",
+    "Move goal allocation"
+  ],
+  "recurring.pay": [
+    "Ghi giao dịch định kỳ",
+    "Record recurring transaction"
+  ],
+  "bank.link": [
+    "Liên kết ngân hàng",
+    "Link bank"
+  ],
+  "bank.unlink": [
+    "Hủy liên kết ngân hàng",
+    "Unlink bank"
+  ],
+  "bank.topup": [
+    "Nạp tiền mô phỏng",
+    "Simulate top-up"
+  ],
+  "bank.withdraw": [
+    "Yêu cầu rút tiền",
+    "Request withdrawal"
+  ],
+  "pending.review": [
+    "Đối soát yêu cầu",
+    "Reconcile request"
+  ],
+  "ticket.create": [
+    "Tạo yêu cầu hỗ trợ",
+    "Create support case"
+  ],
+  "ticket.reply": [
+    "Phản hồi hỗ trợ",
+    "Reply to case"
+  ],
+  "ticket.assign": [
+    "Nhận xử lý hỗ trợ",
+    "Assign case"
+  ],
+  "ticket.resolve": [
+    "Kết luận hỗ trợ",
+    "Resolve case"
+  ],
+  "admin.status": [
+    "Đổi trạng thái tài khoản",
+    "Change account status"
+  ],
+  "admin.revoke": [
+    "Thu hồi phiên người dùng",
+    "Revoke user sessions"
+  ],
+  "broadcast.save": [
+    "Lưu thông báo nháp",
+    "Save broadcast draft"
+  ],
+  "broadcast.publish": [
+    "Phát hành thông báo",
+    "Publish broadcast"
+  ],
+  "maintenance.save": [
+    "Lưu lịch bảo trì",
+    "Save maintenance schedule"
+  ],
+  "maintenance.toggle": [
+    "Đổi trạng thái bảo trì",
+    "Toggle maintenance"
+  ],
+  "notice.read": [
+    "Đọc thông báo",
+    "Read notification"
+  ],
+  "profile.save": [
+    "Lưu hồ sơ",
+    "Save profile"
+  ],
+  "preferences": [
+    "Lưu tùy chọn",
+    "Save preferences"
+  ],
+  "pin.change": [
+    "Đổi PIN",
+    "Change PIN"
+  ],
+  "Fixed": [
+    "Cố định",
+    "Fixed"
+  ],
+  "Free": [
+    "Tự do",
+    "Free"
+  ],
+  "Paused": [
+    "Tạm dừng",
+    "Paused"
+  ],
+  "Cancelled": [
+    "Đã hủy",
+    "Cancelled"
+  ],
+  "Dissolved": [
+    "Đã giải tán",
+    "Dissolved"
+  ],
+  "Accepted": [
+    "Đã chấp nhận",
+    "Accepted"
+  ],
+  "OwnershipOffer": [
+    "Đề nghị chuyển chủ",
+    "Ownership offer"
   ]
 }

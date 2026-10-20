@@ -152,11 +152,11 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
       setRecoveryEmail(email);
     }
     const action = params.get('action');
-    if (action === 'forgot') {
+    if (action === 'forgot' || location.pathname === '/app/recovery') {
       setIsRecoveryMode(true);
       setRecoveryStep('email');
     }
-  }, [location.search]);
+  }, [location.search, location.pathname]);
 
   const handleLoginSubmit = async (
     e?: React.FormEvent | React.KeyboardEvent,
@@ -419,6 +419,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
   };
 
   const handleCancelRecovery = () => {
+    if(location.pathname.startsWith('/app')){navigate('/app/login',{replace:true});return;}
     setIsRecoveryMode(false);
     setRecoveryStep('email');
     setRecoveryOtp('');
@@ -796,8 +797,8 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
                     </h1>
                     <p className="text-xs text-slate-500 dark:text-[#9CA3AF] mt-1 font-normal leading-relaxed">
                       {locale === 'vi-VN'
-                        ? 'Nhập địa chỉ email tài khoản Quản trị viên để nhận mã xác thực đặt lại mật khẩu.'
-                        : 'Enter your Admin account email address to receive a password reset verification code.'}
+                        ? 'Nhập email tài khoản của bạn để nhận mã xác thực mô phỏng.'
+                        : 'Enter your account email to receive a simulated verification code.'}
                     </p>
                   </div>
 
@@ -814,7 +815,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
                           setRecoveryEmail(e.target.value);
                           if (recoveryError) setRecoveryError(null);
                         }}
-                        placeholder="admin@example.com"
+                        placeholder="a@spendwise.demo"
                         disabled={isRecoverySubmitting}
                         required
                         autoFocus
@@ -924,7 +925,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
                         }}
                         autoFocus
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer pointer-events-auto"
-                        aria-label="OTP 8 digits"
+                        aria-label={copyText('OTP 8 digits')}
                       />
 
                       {/* 8 Visual Digit Slots */}

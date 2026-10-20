@@ -25,6 +25,7 @@ import { User } from '../../types';
 
 export const ResetPinPage: React.FC = () => {
   const copyText=useCopy();
+  const loginPath=window.location.pathname.startsWith('/app')?'/app/login':'/admin/login';
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { locale, setLocale } = useI18n();
@@ -252,7 +253,7 @@ export const ResetPinPage: React.FC = () => {
                 </div>
                 <div className="pt-3 w-full">
                   <Link
-                    to="/login"
+                    to={loginPath}
                     className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition-all active:scale-98"
                   >
                     <span>{isVi ? 'Quay lại Đăng nhập' : 'Back to Sign In'}</span>
@@ -280,7 +281,7 @@ export const ResetPinPage: React.FC = () => {
                 </div>
                 <div className="pt-3 w-full">
                   <Link
-                    to="/login"
+                    to={loginPath}
                     className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition-all active:scale-98"
                   >
                     <span>{isVi ? 'Đăng nhập ngay' : 'Sign In Now'}</span>
@@ -308,7 +309,7 @@ export const ResetPinPage: React.FC = () => {
                 </div>
                 <div className="pt-3 w-full">
                   <Link
-                    to="/login"
+                    to={loginPath}
                     className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm shadow-md transition-all active:scale-98"
                   >
                     <span>{isVi ? 'Về trang Đăng nhập' : 'Go to Sign In'}</span>
@@ -348,7 +349,7 @@ export const ResetPinPage: React.FC = () => {
                     <span>{isVi ? 'Thử lại' : 'Retry'}</span>
                   </button>
                   <Link
-                    to="/login"
+                    to={loginPath}
                     className="w-full inline-flex items-center justify-center py-2 text-xs text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
                   >
                     <span>{isVi ? 'Quay lại Đăng nhập' : 'Back to Login'}</span>
@@ -376,7 +377,7 @@ export const ResetPinPage: React.FC = () => {
                 <div className="pt-2 w-full">
                   <Link
                     id="btn-login-after-reset-pin"
-                    to="/login"
+                    to={loginPath}
                     className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md transition-all active:scale-98"
                   >
                     <span>{isVi ? 'Đăng nhập ngay' : 'Sign In Now'}</span>
@@ -503,7 +504,7 @@ export const ResetPinPage: React.FC = () => {
 
                 <div className="pt-2 text-center border-t border-slate-100 dark:border-slate-800">
                   <Link
-                    to="/login"
+                    to={loginPath}
                     className="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
                   >
                     {isVi ? 'Hủy và quay lại Đăng nhập' : 'Cancel and return to Sign In'}

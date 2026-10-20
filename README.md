@@ -16,6 +16,22 @@ npm run dev
 
 Login đã điền sẵn thông tin. User phát animation chữ S gốc rồi vào Dashboard; Admin dùng card kính và trạng thái loading của button, không yêu cầu PIN ở bước login demo. PIN vẫn bắt buộc trong các thao tác tài chính mô phỏng. Trên desktop, User nằm trong khung điện thoại khoảng 390 × 844; trên màn hình hẹp, viền giả lập tự bỏ. Modal, bottom sheet, kết quả, scroll và navbar đều ở bên trong điện thoại. Admin sử dụng toàn bộ màn hình desktop.
 
+## Bản sửa chất lượng UX/UI
+
+VI/EN áp dụng cho nhãn, trạng thái, form, lỗi, khôi phục tài khoản và dữ liệu mẫu. Nội dung người dùng nhập được giữ nguyên. Trang con có Quay lại và Về trang chủ; Profile có Đăng xuất với xác nhận và giữ dữ liệu mô phỏng. Lựa chọn ngôn ngữ/giao diện được lưu theo tài khoản.
+
+Trợ lý có gợi ý, số dư chỉ đọc, hội thoại có thời gian, phản hồi bằng ngôn ngữ hiện tại và đường thoát rõ ràng. Đây vẫn là trợ lý kịch bản cục bộ. Admin có chữ bảng 14px, header 12px và sidebar thu gọn 84px, lưu sau refresh.
+
+| User | Admin |
+|---|---|
+| [AI final](img/user-ai-before-after-or-final.png) | [Login final](img/admin-login-final.png) |
+| [Dashboard final](img/user-dashboard-final.png) | [Dashboard final](img/admin-dashboard-final.png) |
+| [Xác nhận đăng xuất](img/user-profile-logout.png) | [Users final](img/admin-users-final.png) |
+| [Popup thành công](img/user-popup-success-final.png) | [Sidebar thu gọn](img/admin-sidebar-collapsed.png) |
+| [Điều hướng](img/user-navigation-final.png) | [Sidebar mở rộng](img/admin-sidebar-expanded.png) |
+
+Kiểm tra bổ sung: `npm run test:ux`, `npm run test:user-ui`, `npm run test:admin-ui`, `npm run test:auth-ui`. Các script Chrome dùng context riêng, không thay dữ liệu trong các tab đang làm việc.
+
 ## Tài khoản giả lập
 
 | Vai trò | Email | Mật khẩu Demo | PIN Demo |
