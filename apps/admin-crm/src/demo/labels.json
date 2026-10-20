@@ -1,0 +1,666 @@
+{
+  "Active": [
+    "Hoạt động",
+    "Active"
+  ],
+  "Restricted": [
+    "Hạn chế",
+    "Restricted"
+  ],
+  "Locked": [
+    "Đã khóa",
+    "Locked"
+  ],
+  "Completed": [
+    "Hoàn tất",
+    "Completed"
+  ],
+  "Pending": [
+    "Chờ xử lý",
+    "Pending"
+  ],
+  "Pending24h": [
+    "Chờ 24 giờ",
+    "24-hour hold"
+  ],
+  "Suspended": [
+    "Tạm dừng",
+    "Suspended"
+  ],
+  "Draft": [
+    "Bản nháp",
+    "Draft"
+  ],
+  "Published": [
+    "Đã phát hành",
+    "Published"
+  ],
+  "New": [
+    "Mới",
+    "New"
+  ],
+  "InProgress": [
+    "Đang xử lý",
+    "In progress"
+  ],
+  "WaitingForUser": [
+    "Chờ người dùng",
+    "Waiting for user"
+  ],
+  "Resolved": [
+    "Đã giải quyết",
+    "Resolved"
+  ],
+  "Closed": [
+    "Đã đóng",
+    "Closed"
+  ],
+  "Rejected": [
+    "Đã từ chối",
+    "Rejected"
+  ],
+  "Failed": [
+    "Thất bại",
+    "Failed"
+  ],
+  "Nomination": [
+    "Ứng cử",
+    "Nomination"
+  ],
+  "Voting": [
+    "Bỏ phiếu",
+    "Voting"
+  ],
+  "Acceptance": [
+    "Nhận quyền",
+    "Acceptance"
+  ],
+  "spending": [
+    "Chi tiêu",
+    "Spending"
+  ],
+  "savings": [
+    "Tiết kiệm",
+    "Savings"
+  ],
+  "emergency": [
+    "Dự phòng",
+    "Emergency"
+  ],
+  "Expense": [
+    "Chi tiêu",
+    "Expense"
+  ],
+  "Withdrawal": [
+    "Rút tiền",
+    "Withdrawal"
+  ],
+  "Fixed Fund": [
+    "Quỹ cố định",
+    "Fixed fund"
+  ],
+  "Free Fund": [
+    "Quỹ tự do",
+    "Free fund"
+  ],
+  "Maintenance": [
+    "Đang bảo trì",
+    "Maintenance"
+  ],
+  "Operational": [
+    "Đang hoạt động",
+    "Operational"
+  ],
+  "PASS": [
+    "Đạt",
+    "Passed"
+  ],
+  "DEMO": [
+    "MÔ PHỎNG",
+    "DEMO"
+  ],
+  "LOCAL DEMO": [
+    "MÔ PHỎNG CỤC BỘ",
+    "LOCAL DEMO"
+  ],
+  "LOCAL SIMULATION": [
+    "MÔ PHỎNG CỤC BỘ",
+    "LOCAL SIMULATION"
+  ],
+  "FRONTEND DEMO": [
+    "BẢN MÔ PHỎNG",
+    "FRONTEND DEMO"
+  ],
+  "ADMIN WORKSPACE": [
+    "KHÔNG GIAN QUẢN TRỊ",
+    "ADMIN WORKSPACE"
+  ],
+  "WORKSPACE": [
+    "ĐIỀU HƯỚNG",
+    "WORKSPACE"
+  ],
+  "WORKSPACE / OVERVIEW": [
+    "TỔNG QUAN HOẠT ĐỘNG",
+    "WORKSPACE / OVERVIEW"
+  ],
+  "System Admin": [
+    "Quản trị hệ thống",
+    "System administrator"
+  ],
+  "Frontend Simulation": [
+    "Mô phỏng trên trình duyệt",
+    "Browser simulation"
+  ],
+  "Chrome · Frontend Simulation": [
+    "Chrome · Phiên mô phỏng",
+    "Chrome · Demo session"
+  ],
+  "Admin CRM": [
+    "Quản trị hệ thống",
+    "Admin workspace"
+  ],
+  "User Mobile": [
+    "Ứng dụng cá nhân",
+    "Personal app"
+  ],
+  "SpendWise / Admin": [
+    "SpendWise / Quản trị",
+    "SpendWise / Admin"
+  ],
+  "YOUR MONEY. YOUR MOMENT.": [
+    "TÀI CHÍNH CỦA BẠN. NHỊP SỐNG CỦA BẠN.",
+    "YOUR MONEY. YOUR MOMENT."
+  ],
+  "FRONTEND SIMULATION · SPENDWISE V1.0": [
+    "BẢN MÔ PHỎNG · SPENDWISE V1.0",
+    "FRONTEND SIMULATION · SPENDWISE V1.0"
+  ],
+  "SpendWise AI": [
+    "Trợ lý SpendWise",
+    "SpendWise assistant"
+  ],
+  "Security PIN · Demo: 123456": [
+    "PIN bảo mật · Mã mô phỏng: 123456",
+    "Security PIN · Demo: 123456"
+  ],
+  "OTP (8 số / digits)": [
+    "OTP (8 số)",
+    "OTP (8 digits)"
+  ],
+  "PIN (6 số / digits)": [
+    "PIN (6 số)",
+    "PIN (6 digits)"
+  ],
+  "Đăng nhập quản trị": [
+    "Đăng nhập quản trị",
+    "Admin sign in"
+  ],
+  "Quản lý SpendWise trong không gian làm việc của bạn.": [
+    "Quản lý SpendWise trong không gian làm việc của bạn.",
+    "Manage SpendWise from your workspace."
+  ],
+  "Mật khẩu": [
+    "Mật khẩu",
+    "Password"
+  ],
+  "Đăng nhập": [
+    "Đăng nhập",
+    "Sign in"
+  ],
+  "Tài khoản Demo đã điền sẵn": [
+    "Tài khoản mô phỏng đã điền sẵn",
+    "Demo credentials are prefilled"
+  ],
+  "Mở User Mobile": [
+    "Mở ứng dụng cá nhân",
+    "Open personal app"
+  ],
+  "Trang đăng ký": [
+    "Trang đăng ký",
+    "Registration page"
+  ],
+  "Tạo trang sổ mới": [
+    "Tạo trang sổ mới",
+    "Start a new notebook"
+  ],
+  "Họ và tên": [
+    "Họ và tên",
+    "Full name"
+  ],
+  "Số điện thoại": [
+    "Số điện thoại",
+    "Phone number"
+  ],
+  "Hiện mật khẩu": [
+    "Hiện mật khẩu",
+    "Show password"
+  ],
+  "Ẩn mật khẩu": [
+    "Ẩn mật khẩu",
+    "Hide password"
+  ],
+  "Xác nhận mật khẩu / Confirm password": [
+    "Xác nhận mật khẩu",
+    "Confirm password"
+  ],
+  "Tạo sổ chi tiêu SpendWise": [
+    "Tạo sổ chi tiêu SpendWise",
+    "Create your SpendWise notebook"
+  ],
+  "Đã có tài khoản?": [
+    "Đã có tài khoản?",
+    "Already have an account?"
+  ],
+  "ĐĂNG NHẬP NGAY": [
+    "ĐĂNG NHẬP NGAY",
+    "SIGN IN"
+  ],
+  "Trang đăng nhập": [
+    "Trang đăng nhập",
+    "Sign-in page"
+  ],
+  "Mở sổ chi tiêu": [
+    "Mở sổ chi tiêu",
+    "Open your notebook"
+  ],
+  "Email hoặc số điện thoại": [
+    "Email hoặc số điện thoại",
+    "Email or phone number"
+  ],
+  "Ghi nhớ phiên đăng nhập": [
+    "Ghi nhớ phiên đăng nhập",
+    "Remember this session"
+  ],
+  "Quên mật khẩu?": [
+    "Quên mật khẩu?",
+    "Forgot password?"
+  ],
+  "Đăng nhập vào SpendWise": [
+    "Đăng nhập vào SpendWise",
+    "Sign in to SpendWise"
+  ],
+  "Chưa có tài khoản?": [
+    "Chưa có tài khoản?",
+    "New to SpendWise?"
+  ],
+  "ĐĂNG KÝ NGAY": [
+    "ĐĂNG KÝ NGAY",
+    "REGISTER"
+  ],
+  "FINANCE PLATFORM": [
+    "NỀN TẢNG TÀI CHÍNH",
+    "FINANCE PLATFORM"
+  ],
+  "OTP 8 digits": [
+    "OTP 8 số",
+    "8-digit OTP"
+  ],
+  "Demo error": [
+    "Chưa thể thực hiện thao tác. Vui lòng thử lại.",
+    "Unable to complete the action. Please try again."
+  ],
+  "Error": [
+    "Có lỗi xảy ra. Vui lòng thử lại.",
+    "Something went wrong. Please try again."
+  ],
+  "Session expired": [
+    "Phiên đã hết hạn. Vui lòng đăng nhập lại.",
+    "Session expired. Please sign in again."
+  ],
+  "User unavailable": [
+    "Không tìm thấy người dùng.",
+    "User unavailable."
+  ],
+  "Invalid reset token or PIN": [
+    "Mã đặt lại hoặc PIN không hợp lệ.",
+    "Invalid reset token or PIN."
+  ],
+  "Incorrect PIN": [
+    "PIN không đúng. Vui lòng thử lại.",
+    "Incorrect PIN. Please try again."
+  ],
+  "Invalid demo data": [
+    "Dữ liệu mô phỏng không hợp lệ.",
+    "Invalid demo data."
+  ],
+  "User only": [
+    "Chỉ dành cho người dùng cá nhân.",
+    "Personal accounts only."
+  ],
+  "Wallet unavailable": [
+    "Không tìm thấy ví.",
+    "Wallet unavailable."
+  ],
+  "System": [
+    "Theo hệ thống",
+    "System"
+  ],
+  "Tiếng Việt": [
+    "Tiếng Việt",
+    "Vietnamese"
+  ],
+  "English": [
+    "Tiếng Anh",
+    "English"
+  ],
+  "SpendId": [
+    "Mã người dùng",
+    "User ID"
+  ],
+  "SpendId:": [
+    "Mã người dùng:",
+    "User ID:"
+  ],
+  "DEMO OTP:": [
+    "OTP mô phỏng:",
+    "DEMO OTP:"
+  ],
+  "DEMO OTP: 12345678 · PIN: 123456": [
+    "OTP mô phỏng: 12345678 · PIN: 123456",
+    "DEMO OTP: 12345678 · PIN: 123456"
+  ],
+  "· Pending": [
+    "· Chờ xử lý",
+    "· Pending"
+  ],
+  "Đang xác thực Demo…": [
+    "Đang xác thực…",
+    "Signing you in…"
+  ],
+  "Ví chi tiêu": [
+    "Ví chi tiêu",
+    "Spending wallet"
+  ],
+  "Quỹ dự phòng": [
+    "Quỹ dự phòng",
+    "Emergency reserve"
+  ],
+  "Ví của Bảo": [
+    "Ví của Bảo",
+    "Bao’s wallet"
+  ],
+  "Đà Lạt cùng nhau": [
+    "Đà Lạt cùng nhau",
+    "Da Lat together"
+  ],
+  "Nhà mình · Chi tiêu chung": [
+    "Nhà mình · Chi tiêu chung",
+    "Our home · Shared expenses"
+  ],
+  "Ăn uống & Cà phê": [
+    "Ăn uống & Cà phê",
+    "Food & Coffee"
+  ],
+  "Một chuyến đi xa": [
+    "Một chuyến đi xa",
+    "A trip away"
+  ],
+  "Tiền thuê nhà": [
+    "Tiền thuê nhà",
+    "Rent"
+  ],
+  "Ăn uống": [
+    "Ăn uống",
+    "Food"
+  ],
+  "Thu nhập": [
+    "Thu nhập",
+    "Income"
+  ],
+  "Cà phê cùng bạn": [
+    "Cà phê cùng bạn",
+    "Coffee with friends"
+  ],
+  "Thu nhập tháng 10": [
+    "Thu nhập tháng 10",
+    "October income"
+  ],
+  "Kiểm tra giao dịch đang xử lý": [
+    "Kiểm tra giao dịch đang xử lý",
+    "Review a pending transaction"
+  ],
+  "Cập nhật bảo mật tài khoản": [
+    "Cập nhật bảo mật tài khoản",
+    "Update account security"
+  ],
+  "Nhờ kiểm tra trạng thái giao dịch demo của tôi.": [
+    "Nhờ kiểm tra trạng thái giao dịch demo của tôi.",
+    "Please review my simulated transaction status."
+  ],
+  "Tôi cần hỗ trợ quản lý phiên đăng nhập.": [
+    "Tôi cần hỗ trợ quản lý phiên đăng nhập.",
+    "I need help managing my sign-in sessions."
+  ],
+  "Chào mừng đến SpendWise": [
+    "Chào mừng đến SpendWise",
+    "Welcome to SpendWise"
+  ],
+  "Không gian tài chính của bạn đã sẵn sàng. Đây là dữ liệu mô phỏng.": [
+    "Không gian tài chính của bạn đã sẵn sàng. Đây là dữ liệu mô phỏng.",
+    "Your financial workspace is ready. This is simulated data."
+  ],
+  "Bảo trì định kỳ": [
+    "Bảo trì định kỳ",
+    "Scheduled maintenance"
+  ],
+  "Khác": [
+    "Khác",
+    "Other"
+  ],
+  "Chuyển tiền": [
+    "Chuyển tiền",
+    "Transfer"
+  ],
+  "Thu chi cá nhân": [
+    "Thu chi cá nhân",
+    "Personal income / expense"
+  ],
+  "Rút tiền · Chờ đối soát": [
+    "Rút tiền · Chờ đối soát",
+    "Withdrawal · Awaiting reconciliation"
+  ],
+  "Hoàn yêu cầu rút Demo": [
+    "Hoàn yêu cầu rút Demo",
+    "Demo withdrawal refunded"
+  ],
+  "Lê Hoàng · Admin": [
+    "Lê Hoàng · Admin",
+    "Lê Hoàng"
+  ],
+  "Mobile navigation": [
+    "Điều hướng chính",
+    "Main navigation"
+  ],
+  "Tìm giao dịch / Search": [
+    "Tìm giao dịch",
+    "Search transactions"
+  ],
+  "Tìm bạn / Search people": [
+    "Tìm bạn",
+    "Search people"
+  ],
+  "Ticket status": [
+    "Trạng thái yêu cầu",
+    "Ticket status"
+  ],
+  "DEMO ·": [
+    "MÔ PHỎNG ·",
+    "DEMO ·"
+  ],
+  "Tin nhắn / Message": [
+    "Tin nhắn",
+    "Message"
+  ],
+  "Gửi / Send": [
+    "Gửi",
+    "Send"
+  ],
+  "Search users": [
+    "Tìm người dùng",
+    "Search users"
+  ],
+  "User status": [
+    "Trạng thái người dùng",
+    "User status"
+  ],
+  "Previous page": [
+    "Trang trước",
+    "Previous page"
+  ],
+  "Next page": [
+    "Trang sau",
+    "Next page"
+  ],
+  "Broadcast filter": [
+    "Lọc thông báo",
+    "Broadcast filter"
+  ],
+  "Fixed & Free Fund": [
+    "Quỹ cố định và tự do",
+    "Fixed & free funds"
+  ],
+  "OTP Demo: 12345678": [
+    "OTP mô phỏng: 12345678",
+    "Demo OTP: 12345678"
+  ],
+  "Demo credentials": [
+    "Tài khoản mô phỏng",
+    "Demo credentials"
+  ],
+  "Fund": [
+    "Quỹ",
+    "Fund"
+  ],
+  "Fund unavailable": [
+    "Quỹ không khả dụng",
+    "Fund unavailable"
+  ],
+  "Already a member": [
+    "Bạn đã là thành viên",
+    "Already a member"
+  ],
+  "Maximum 10 funds": [
+    "Tối đa 10 quỹ",
+    "Maximum 10 funds"
+  ],
+  "Invalid request kind": [
+    "Loại yêu cầu không hợp lệ",
+    "Invalid request kind"
+  ],
+  "Insufficient fund balance": [
+    "Số dư quỹ không đủ",
+    "Insufficient fund balance"
+  ],
+  "Pending requests block dissolution": [
+    "Cần xử lý các yêu cầu đang chờ trước khi giải tán",
+    "Pending requests block dissolution"
+  ],
+  "Ownership offer unavailable": [
+    "Đề nghị chuyển chủ không khả dụng",
+    "Ownership offer unavailable"
+  ],
+  "Member unavailable": [
+    "Thành viên không khả dụng",
+    "Member unavailable"
+  ],
+  "Election active": [
+    "Bầu cử đang diễn ra",
+    "Election active"
+  ],
+  "Nomination closed": [
+    "Đã đóng ứng cử",
+    "Nomination closed"
+  ],
+  "Invalid ballot": [
+    "Phiếu bầu không hợp lệ",
+    "Invalid ballot"
+  ],
+  "No election": [
+    "Chưa có bầu cử",
+    "No election"
+  ],
+  "Only elected winner": [
+    "Chỉ người thắng bầu cử được thao tác",
+    "Only elected winner"
+  ],
+  "Invalid item": [
+    "Mục không hợp lệ",
+    "Invalid item"
+  ],
+  "Item unavailable": [
+    "Mục không khả dụng",
+    "Item unavailable"
+  ],
+  "Goal unavailable": [
+    "Mục tiêu không khả dụng",
+    "Goal unavailable"
+  ],
+  "Recurring unavailable": [
+    "Giao dịch định kỳ không khả dụng",
+    "Recurring unavailable"
+  ],
+  "Insufficient balance": [
+    "Số dư không đủ",
+    "Insufficient balance"
+  ],
+  "Invalid bank name": [
+    "Tên ngân hàng không hợp lệ",
+    "Invalid bank name"
+  ],
+  "Bank unavailable": [
+    "Ngân hàng không khả dụng",
+    "Bank unavailable"
+  ],
+  "Link a bank first": [
+    "Vui lòng liên kết ngân hàng trước",
+    "Link a bank first"
+  ],
+  "Pending request unavailable": [
+    "Yêu cầu chờ xử lý không khả dụng",
+    "Pending request unavailable"
+  ],
+  "Active assigned case required": [
+    "Cần yêu cầu hỗ trợ đang được phân công",
+    "Active assigned case required"
+  ],
+  "Reason required": [
+    "Vui lòng nhập lý do",
+    "Reason required"
+  ],
+  "Invalid reconciliation decision": [
+    "Kết quả đối soát không hợp lệ",
+    "Invalid reconciliation decision"
+  ],
+  "Demo bank unavailable": [
+    "Ngân hàng mô phỏng không khả dụng",
+    "Demo bank unavailable"
+  ],
+  "Empty message": [
+    "Vui lòng nhập nội dung",
+    "Empty message"
+  ],
+  "Case unavailable": [
+    "Yêu cầu hỗ trợ không khả dụng",
+    "Case unavailable"
+  ],
+  "Invalid status": [
+    "Trạng thái không hợp lệ",
+    "Invalid status"
+  ],
+  "Title and message required": [
+    "Vui lòng nhập tiêu đề và nội dung",
+    "Title and message required"
+  ],
+  "Draft unavailable": [
+    "Bản nháp không khả dụng",
+    "Draft unavailable"
+  ],
+  "Invalid name": [
+    "Tên không hợp lệ",
+    "Invalid name"
+  ],
+  "Invalid preferences": [
+    "Tùy chọn không hợp lệ",
+    "Invalid preferences"
+  ]
+}

@@ -14,6 +14,7 @@
     "test:browser": "node scripts/test-browser.cjs",
     "test:ui": "node scripts/test-ui-review.cjs",
     "test:admin": "node scripts/test-admin-actions.cjs",
-    "test:feedback": "node scripts/test-feedback.cjs"
+    "test:feedback": "node scripts/test-feedback.cjs",
+    "test:ux": "node scripts/test-ux-quality.cjs"
   }
 }

@@ -26,7 +26,7 @@ async function exclusive<T>(fn: () => T): Promise<T> {
     return fn();
 }
 export const demoApi = {
-    async command(actor: string, c: Command) { await wait(); return exclusive(() => { const result = execute(read(), actor, c); persist(result.state); return result.value; }); },
+    async command(actor: string, c: Command) { if(c.type!=='preferences')await wait(); return exclusive(() => { const result = execute(read(), actor, c); persist(result.state); return result.value; }); },
     async query() { await wait(180); return read(); },
 };
 type Session = {

@@ -1,0 +1,346 @@
+{
+  "Số tiền phải là số nguyên VND từ 1 đến 1.000.000.000 / Enter a valid whole VND amount.": [
+    "Số tiền phải là số nguyên VND từ 1 đến 1.000.000.000",
+    "Enter a valid whole VND amount."
+  ],
+  "Số dư không hợp lệ / Invalid balance": [
+    "Số dư không hợp lệ",
+    "Invalid balance"
+  ],
+  "Bảo toàn tiền thất bại / Money conservation failed": [
+    "Bảo toàn tiền thất bại",
+    "Money conservation failed"
+  ],
+  "Tài khoản đã khóa / Account locked": [
+    "Tài khoản đã khóa",
+    "Account locked"
+  ],
+  "Khóa giao dịch trùng / Conflicting idempotency key": [
+    "Khóa giao dịch trùng",
+    "Conflicting idempotency key"
+  ],
+  "Mã PIN không đúng / Incorrect PIN (demo: 123456)": [
+    "Mã PIN không đúng",
+    "Incorrect PIN (demo: 123456)"
+  ],
+  "Tài khoản bị hạn chế giao dịch / Outbound finance is restricted": [
+    "Tài khoản bị hạn chế giao dịch",
+    "Outbound finance is restricted"
+  ],
+  "Hệ thống đang bảo trì / Maintenance is active": [
+    "Hệ thống đang bảo trì",
+    "Maintenance is active"
+  ],
+  "Thiếu mã giao dịch / Missing idempotency key": [
+    "Thiếu mã giao dịch",
+    "Missing idempotency key"
+  ],
+  "Không tìm thấy ví / Wallet unavailable": [
+    "Không tìm thấy ví",
+    "Wallet unavailable"
+  ],
+  "Quỹ không hoạt động / Fund unavailable": [
+    "Quỹ không hoạt động",
+    "Fund unavailable"
+  ],
+  "Bạn không là thành viên / Membership required": [
+    "Bạn không là thành viên",
+    "Membership required"
+  ],
+  "Chỉ chủ quỹ được thao tác / Owner only": [
+    "Chỉ chủ quỹ được thao tác",
+    "Owner only"
+  ],
+  "Tài chính bị đóng băng trong bầu cử / Finance frozen during election": [
+    "Tài chính bị đóng băng trong bầu cử",
+    "Finance frozen during election"
+  ],
+  "Chỉ Admin / Admin only": [
+    "Chỉ Admin",
+    "Admin only"
+  ],
+  "Tên ví từ 2–60 ký tự / Wallet name: 2–60 characters": [
+    "Tên ví từ 2–60 ký tự",
+    "Wallet name: 2–60 characters"
+  ],
+  "Tên không hợp lệ / Invalid name": [
+    "Tên không hợp lệ",
+    "Invalid name"
+  ],
+  "Chỉ đóng ví số dư 0 / Only empty wallets can close": [
+    "Chỉ đóng ví số dư 0",
+    "Only empty wallets can close"
+  ],
+  "Phải giữ ít nhất một ví / Keep at least one wallet": [
+    "Phải giữ ít nhất một ví",
+    "Keep at least one wallet"
+  ],
+  "Người nhận không hợp lệ / Invalid recipient": [
+    "Người nhận không hợp lệ",
+    "Invalid recipient"
+  ],
+  "Người nhận không khả dụng / Recipient unavailable": [
+    "Người nhận không khả dụng",
+    "Recipient unavailable"
+  ],
+  "Số dư không đủ / Insufficient balance": [
+    "Số dư không đủ",
+    "Insufficient balance"
+  ],
+  "Nhận tiền / Money received": [
+    "Nhận tiền",
+    "Money received"
+  ],
+  "Người nhận không hợp lệ / Invalid user": [
+    "Người nhận không hợp lệ",
+    "Invalid user"
+  ],
+  "Đã có kết nối/lời mời / Already connected or invited": [
+    "Đã có kết nối/lời mời",
+    "Already connected or invited"
+  ],
+  "Lời mời kết bạn / Friend request": [
+    "Lời mời kết bạn",
+    "Friend request"
+  ],
+  "Lời mời không hợp lệ / Invitation unavailable": [
+    "Lời mời không hợp lệ",
+    "Invitation unavailable"
+  ],
+  "Không có quyền / Access denied": [
+    "Không có quyền",
+    "Access denied"
+  ],
+  "Tối đa 10 quỹ / Maximum 10 funds": [
+    "Tối đa 10 quỹ",
+    "Maximum 10 funds"
+  ],
+  "Tên quỹ không hợp lệ / Invalid fund name": [
+    "Tên quỹ không hợp lệ",
+    "Invalid fund name"
+  ],
+  "Loại quỹ không hợp lệ / Invalid fund kind": [
+    "Loại quỹ không hợp lệ",
+    "Invalid fund kind"
+  ],
+  "Thành viên không hợp lệ / Invalid member": [
+    "Thành viên không hợp lệ",
+    "Invalid member"
+  ],
+  "Đã có lời mời / Already invited": [
+    "Đã có lời mời",
+    "Already invited"
+  ],
+  "Lời mời nhóm / Fund invitation": [
+    "Lời mời nhóm",
+    "Fund invitation"
+  ],
+  "Quỹ đã đủ thành viên / Fund full": [
+    "Quỹ đã đủ thành viên",
+    "Fund full"
+  ],
+  " đã tham gia / joined": [
+    " đã tham gia",
+    "joined"
+  ],
+  "Vượt nghĩa vụ đóng góp / Exceeds fixed obligation": [
+    "Vượt nghĩa vụ đóng góp",
+    "Exceeds fixed obligation"
+  ],
+  " góp quỹ / contributed": [
+    " góp quỹ",
+    "contributed"
+  ],
+  "Quỹ không đủ số dư khả dụng / Insufficient available fund balance": [
+    "Quỹ không đủ số dư khả dụng",
+    "Insufficient available fund balance"
+  ],
+  "Người nhận không có ví / Recipient needs a wallet": [
+    "Người nhận không có ví",
+    "Recipient needs a wallet"
+  ],
+  "Không đủ quyền rút / Withdrawal exceeds entitlement": [
+    "Không đủ quyền rút",
+    "Withdrawal exceeds entitlement"
+  ],
+  "Không có quyền chi tiêu / Spending permission required": [
+    "Không có quyền chi tiêu",
+    "Spending permission required"
+  ],
+  "Yêu cầu / Request: ": [
+    "Yêu cầu",
+    "Request: "
+  ],
+  "Chưa thể duyệt / Request unavailable for review": [
+    "Chưa thể duyệt",
+    "Request unavailable for review"
+  ],
+  "Membership đã thay đổi / Membership episode changed": [
+    "Membership đã thay đổi",
+    "Membership episode changed"
+  ],
+  "Chỉ báo cáo khoản đang chờ 24h / Pending24h request required": [
+    "Chỉ báo cáo khoản đang chờ 24h",
+    "Pending24h request required"
+  ],
+  "Chuyển chủ trước khi rời / Transfer ownership before leaving": [
+    "Chuyển chủ trước khi rời",
+    "Transfer ownership before leaving"
+  ],
+  "Có yêu cầu chưa xử lý / Pending requests block refund": [
+    "Có yêu cầu chưa xử lý",
+    "Pending requests block refund"
+  ],
+  " rời nhóm / left": [
+    " rời nhóm",
+    "left"
+  ],
+  "Quỹ không có người đủ quyền hoàn tiền / No eligible refund recipients": [
+    "Quỹ không có người đủ quyền hoàn tiền",
+    "No eligible refund recipients"
+  ],
+  "Đã giải tán / Dissolved": [
+    "Đã giải tán",
+    "Dissolved"
+  ],
+  "Chủ mới phải là thành viên / New owner must be an active member": [
+    "Chủ mới phải là thành viên",
+    "New owner must be an active member"
+  ],
+  "Chủ mới / New owner: ": [
+    "Chủ mới",
+    "New owner: "
+  ],
+  "Demo chỉ cho chủ tự mở bầu cử / Demo owner can open election": [
+    "Demo chỉ cho chủ tự mở bầu cử",
+    "Demo owner can open election"
+  ],
+  "Bạn đã bỏ phiếu / Already voted": [
+    "Bạn đã bỏ phiếu",
+    "Already voted"
+  ],
+  "Chưa hết hạn bầu cử / Deadline has not elapsed": [
+    "Chưa hết hạn bầu cử",
+    "Deadline has not elapsed"
+  ],
+  "Tên tối thiểu 2 ký tự / Name is too short": [
+    "Tên tối thiểu 2 ký tự",
+    "Name is too short"
+  ],
+  "Rút tiền mục tiêu trước khi xóa / Withdraw goal allocation first": [
+    "Rút tiền mục tiêu trước khi xóa",
+    "Withdraw goal allocation first"
+  ],
+  "Số dư không đủ / Insufficient funds": [
+    "Số dư không đủ",
+    "Insufficient funds"
+  ],
+  "Đã ghi kỳ này / Occurrence already recorded": [
+    "Đã ghi kỳ này",
+    "Occurrence already recorded"
+  ],
+  "Ngân hàng Demo không đủ tiền / Insufficient demo bank balance": [
+    "Ngân hàng Demo không đủ tiền",
+    "Insufficient demo bank balance"
+  ],
+  "Cần tiêu đề và nội dung / Title and message required": [
+    "Cần tiêu đề và nội dung",
+    "Title and message required"
+  ],
+  "Không có quyền ticket / Case access denied": [
+    "Không có quyền ticket",
+    "Case access denied"
+  ],
+  "Ticket đã đóng / Case closed": [
+    "Ticket đã đóng",
+    "Case closed"
+  ],
+  "Lý do tối thiểu 5 ký tự / Reason required": [
+    "Lý do tối thiểu 5 ký tự",
+    "Reason required"
+  ],
+  "Yêu cầu đã xử lý / Case resolved": [
+    "Yêu cầu đã xử lý",
+    "Case resolved"
+  ],
+  "Cần ticket liên quan đang được phân công / Active assigned support case required": [
+    "Cần ticket liên quan đang được phân công",
+    "Active assigned support case required"
+  ],
+  "Trạng thái tài khoản / Account status": [
+    "Trạng thái tài khoản",
+    "Account status"
+  ],
+  "Khoảng thời gian không hợp lệ / Invalid schedule": [
+    "Khoảng thời gian không hợp lệ",
+    "Invalid schedule"
+  ],
+  "Còn giao dịch đối soát / Pending reconciliation blocks reopening": [
+    "Còn giao dịch đối soát",
+    "Pending reconciliation blocks reopening"
+  ],
+  "PIN mới cần 6 số và xác nhận khớp / Confirm six-digit PIN": [
+    "PIN mới cần 6 số và xác nhận khớp",
+    "Confirm six-digit PIN"
+  ],
+  "Thao tác chưa được hỗ trợ / Unsupported demo command: ": [
+    "Thao tác chưa được hỗ trợ",
+    "Unsupported demo command: "
+  ],
+  "Email hoặc mật khẩu demo không đúng / Incorrect demo credentials": [
+    "Email hoặc mật khẩu demo không đúng",
+    "Incorrect demo credentials"
+  ],
+  "Vui lòng xác minh OTP demo / Verify demo OTP first": [
+    "Vui lòng xác minh OTP demo",
+    "Verify demo OTP first"
+  ],
+  "Tài khoản đang khóa / Account locked": [
+    "Tài khoản đang khóa",
+    "Account locked"
+  ],
+  "Sai khu vực đăng nhập / Use the correct login area": [
+    "Sai khu vực đăng nhập",
+    "Use the correct login area"
+  ],
+  "Vui lòng kiểm tra họ tên, email, số điện thoại và mật khẩu 8–128 ký tự có chữ hoa, thường, số. / Check registration fields.": [
+    "Vui lòng kiểm tra họ tên, email, số điện thoại và mật khẩu 8–128 ký tự có chữ hoa, thường, số.",
+    "Check registration fields."
+  ],
+  "Email/SĐT đã tồn tại / Email or phone already exists": [
+    "Email/SĐT đã tồn tại",
+    "Email or phone already exists"
+  ],
+  "Thông tin đăng nhập không đúng / Invalid credentials": [
+    "Thông tin đăng nhập không đúng",
+    "Invalid credentials"
+  ],
+  "Phiên xác thực hết hạn / Challenge expired": [
+    "Phiên xác thực hết hạn",
+    "Challenge expired"
+  ],
+  "PIN không hợp lệ / Invalid PIN": [
+    "PIN không hợp lệ",
+    "Invalid PIN"
+  ],
+  "PIN không đúng / Incorrect PIN": [
+    "PIN không đúng",
+    "Incorrect PIN"
+  ],
+  "OTP hoặc mật khẩu không hợp lệ / Invalid OTP or password": [
+    "OTP hoặc mật khẩu không hợp lệ",
+    "Invalid OTP or password"
+  ],
+  "Phiên hết hạn / Session expired": [
+    "Phiên hết hạn",
+    "Session expired"
+  ],
+  "Mật khẩu không hợp lệ / Invalid password": [
+    "Mật khẩu không hợp lệ",
+    "Invalid password"
+  ],
+  "OTP Demo: 12345678. PIN cần đúng 6 số, xác nhận khớp. / Check OTP and PIN confirmation.": [
+    "OTP Demo: 12345678. PIN cần đúng 6 số, xác nhận khớp.",
+    "Check OTP and PIN confirmation."
+  ]
+}

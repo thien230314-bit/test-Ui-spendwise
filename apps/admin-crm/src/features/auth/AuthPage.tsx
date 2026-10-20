@@ -1,3 +1,4 @@
+import {useCopy} from '../../demo/copy';
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
@@ -55,6 +56,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
     currentUser,
     isLoading: authLoading,
   } = useAuth();
+  const copyText=useCopy();
   const { t, locale, setLocale } = useI18n();
   const { theme, setTheme, resolvedTheme } = useTheme();
   const navigate = useNavigate();
@@ -595,7 +597,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
               <span className="text-base font-black text-emerald-700 dark:text-emerald-400 tracking-tight">Wise</span>
             </div>
             <span className="text-[10px] font-bold tracking-wider text-stone-600 dark:text-stone-400 uppercase mt-0.5">
-              FINANCE PLATFORM
+              {copyText('FINANCE PLATFORM')}
             </span>
           </div>
         </div>
@@ -778,7 +780,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
               {recoveryError && (
                 <div className="flex items-start gap-2.5 p-3 rounded-[10px] bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-500/50 text-xs text-rose-800 dark:text-rose-300 shadow-xs">
                   <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
-                  <div className="flex-1 font-medium">{recoveryError}</div>
+                  <div className="flex-1 font-medium">{copyText(recoveryError)}</div>
                 </div>
               )}
 
@@ -1220,7 +1222,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
               {pinError && (
                 <div className="flex items-start gap-2.5 p-3 rounded-[10px] bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-500/50 text-xs text-rose-800 dark:text-rose-300 shadow-xs">
                   <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
-                  <div className="flex-1 font-medium">{pinError}</div>
+                  <div className="flex-1 font-medium">{copyText(pinError)}</div>
                 </div>
               )}
 
@@ -1317,7 +1319,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
               {pinError && (
                 <div className="flex items-start gap-2 p-2.5 rounded-[10px] bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-500/50 text-xs text-rose-800 dark:text-rose-300 shadow-xs">
                   <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
-                  <div className="flex-1 font-medium">{pinError}</div>
+                  <div className="flex-1 font-medium">{copyText(pinError)}</div>
                 </div>
               )}
 
@@ -1413,7 +1415,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
             {loginError && (
               <div className="flex items-start gap-2.5 p-3 rounded-[10px] bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-500/50 text-xs text-rose-800 dark:text-rose-300 shadow-xs">
                 <AlertCircle className="h-4 w-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
-                <div className="flex-1 font-medium">{loginError}</div>
+                <div className="flex-1 font-medium">{copyText(loginError)}</div>
               </div>
             )}
 
@@ -1688,7 +1690,7 @@ export const AuthPage: React.FC<AuthPageProps> = () => {
                   />
                   {forgotPinError && (
                     <p className="text-[11px] text-rose-500 dark:text-rose-400 font-medium">
-                      {forgotPinError}
+                      {copyText(forgotPinError)}
                     </p>
                   )}
                 </div>

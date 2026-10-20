@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import './NotebookAuth.css';
+import {useCopy} from '../../demo/copy';
 import { SpendWiseSLoading } from '../../components/ui/SpendWiseSLoading';
 
 export interface NotebookAuthProps {
@@ -12,6 +13,7 @@ export interface NotebookAuthProps {
 export const NotebookAuth: React.FC<NotebookAuthProps> = ({
   onLogin, onRegister, onForgot,
 }) => {
+  const t=useCopy();
   const [authBusy,setAuthBusy] = useState(false);
   const submissionRef=useRef(false);
   const [error, setError] = useState('');
@@ -315,8 +317,8 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
 
   return (
     <div className="nb-auth-viewport">
-      {error && <div className="demo-auth-error" role="alert">{error}</div>}
-      {authBusy && <div className="demo-auth-loading"><SpendWiseSLoading size={110} label="Đang xác thực Demo…" /></div>}
+      {error && <div className="demo-auth-error" role="alert">{t(error)}</div>}
+      {authBusy && <div className="demo-auth-loading"><SpendWiseSLoading size={110} label={t("Đang xác thực Demo…")} /></div>}
       {/* SVG Symbols matching notebook-auth.html */}
       <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
         <symbol id="nb-i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -369,7 +371,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
         <section
           ref={pgRegRef}
           className="nb-page"
-          aria-label="Trang đăng ký"
+          aria-label={t("Trang đăng ký")}
           {...(state !== 'register' ? { inert: true } : {})}
         >
           <div className="nb-holes">
@@ -381,8 +383,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
             <div className="nb-head">
               <h2>
                 <svg><use href="#nb-i-check" /></svg>
-                Tạo trang sổ mới
-              </h2>
+                {t("Tạo trang sổ mới")}</h2>
             </div>
             <form
               autoComplete="on"
@@ -392,7 +393,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
               }}
             >
               <div className="nb-field">
-                <label htmlFor="nb-r-name">Họ và tên</label>
+                <label htmlFor="nb-r-name">{t("Họ và tên")}</label>
                 <div className="nb-input">
                   <svg><use href="#nb-i-user" /></svg>
                   <input
@@ -420,7 +421,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                 </div>
               </div>
               <div className="nb-field">
-                <label htmlFor="nb-r-phone">Số điện thoại</label>
+                <label htmlFor="nb-r-phone">{t("Số điện thoại")}</label>
                 <div className="nb-input">
                   <svg><use href="#nb-i-phone" /></svg>
                   <input
@@ -434,7 +435,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                 </div>
               </div>
               <div className="nb-field">
-                <label htmlFor="nb-r-pass">Mật khẩu</label>
+                <label htmlFor="nb-r-pass">{t("Mật khẩu")}</label>
                 <div className="nb-input">
                   <svg><use href="#nb-i-lock" /></svg>
                   <input
@@ -448,7 +449,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                   <button
                     type="button"
                     className="nb-eye"
-                    aria-label="Hiện mật khẩu"
+                    aria-label={t("Hiện mật khẩu")}
                     onClick={() => setShowRegPass(!showRegPass)}
                   >
                     <svg width="17" height="17"><use href="#nb-i-eye" /></svg>
@@ -456,13 +457,13 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                 </div>
               </div>
 
-              <div className="nb-field"><label htmlFor="nb-r-confirm">Xác nhận mật khẩu / Confirm password</label><div className="nb-input"><svg><use href="#nb-i-lock" /></svg><input id="nb-r-confirm" type="password" value={regConfirm} onChange={e=>setRegConfirm(e.target.value)} autoComplete="new-password" required /></div></div>
+              <div className="nb-field"><label htmlFor="nb-r-confirm">{t("Xác nhận mật khẩu / Confirm password")}</label><div className="nb-input"><svg><use href="#nb-i-lock" /></svg><input id="nb-r-confirm" type="password" value={regConfirm} onChange={e=>setRegConfirm(e.target.value)} autoComplete="new-password" required /></div></div>
               <button className="nb-btn" type="submit" disabled={busy||authBusy}>
-                Tạo sổ chi tiêu SpendWise <svg width="16" height="16"><use href="#nb-i-arrow" /></svg>
+                {t("Tạo sổ chi tiêu SpendWise")}<svg width="16" height="16"><use href="#nb-i-arrow" /></svg>
               </button>
             </form>
 
-            <p className="nb-alt">Đã có tài khoản?</p>
+            <p className="nb-alt">{t("Đã có tài khoản?")}</p>
             <button
               type="button"
               className="nb-btn-gold"
@@ -472,8 +473,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
               <svg width="15" height="15" style={{ transform: 'rotate(90deg)' }}>
                 <use href="#nb-i-arrow" />
               </svg>
-              ĐĂNG NHẬP NGAY
-            </button>
+              {t("ĐĂNG NHẬP NGAY")}</button>
           </div>
         </section>
 
@@ -485,7 +485,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
           <section
             ref={pgLoginRef}
             className="nb-page"
-            aria-label="Trang đăng nhập"
+            aria-label={t("Trang đăng nhập")}
             {...(state !== 'login' ? { inert: true } : {})}
           >
             <div className="nb-holes">
@@ -497,8 +497,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
               <div className="nb-head">
                 <h2>
                   <svg><use href="#nb-i-spark" /></svg>
-                  Mở sổ chi tiêu
-                </h2>
+                  {t("Mở sổ chi tiêu")}</h2>
               </div>
               <form
                 autoComplete="on"
@@ -508,7 +507,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                 }}
               >
                 <div className="nb-field">
-                  <label htmlFor="nb-l-id">Email hoặc số điện thoại</label>
+                  <label htmlFor="nb-l-id">{t("Email hoặc số điện thoại")}</label>
                   <div className="nb-input">
                     <svg><use href="#nb-i-mail" /></svg>
                     <input
@@ -522,7 +521,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                   </div>
                 </div>
                 <div className="nb-field">
-                  <label htmlFor="nb-l-pass">Mật khẩu</label>
+                  <label htmlFor="nb-l-pass">{t("Mật khẩu")}</label>
                   <div className="nb-input">
                     <svg><use href="#nb-i-lock" /></svg>
                     <input
@@ -536,7 +535,7 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                     <button
                       type="button"
                       className="nb-eye"
-                      aria-label="Hiện mật khẩu"
+                      aria-label={t("Hiện mật khẩu")}
                       onClick={() => setShowLoginPass(!showLoginPass)}
                     >
                       <svg width="17" height="17"><use href="#nb-i-eye" /></svg>
@@ -551,27 +550,24 @@ export const NotebookAuth: React.FC<NotebookAuthProps> = ({
                       checked={remember}
                       onChange={(e) => setRemember(e.target.checked)}
                     />
-                    Ghi nhớ phiên đăng nhập
-                  </label>
+                    {t("Ghi nhớ phiên đăng nhập")}</label>
                   <button type="button" className="nb-link" onClick={onForgot}>
-                    Quên mật khẩu?
-                  </button>
+                    {t("Quên mật khẩu?")}</button>
                 </div>
 
                 <button className="nb-btn" type="submit" disabled={busy||authBusy}>
-                  Đăng nhập vào SpendWise <svg width="16" height="16"><use href="#nb-i-arrow" /></svg>
+                  {t("Đăng nhập vào SpendWise")}<svg width="16" height="16"><use href="#nb-i-arrow" /></svg>
                 </button>
               </form>
 
-              <p className="nb-alt">Chưa có tài khoản?</p>
+              <p className="nb-alt">{t("Chưa có tài khoản?")}</p>
               <button
                 type="button"
                 className="nb-btn-gold"
                 disabled={busy||authBusy}
                 onClick={() => go('register')}
               >
-                ĐĂNG KÝ NGAY
-                <svg width="15" height="15" style={{ transform: 'rotate(-90deg)' }}>
+                {t("ĐĂNG KÝ NGAY")}<svg width="15" height="15" style={{ transform: 'rotate(-90deg)' }}>
                   <use href="#nb-i-arrow" />
                 </svg>
               </button>

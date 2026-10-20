@@ -1,3 +1,4 @@
+import {useCopy} from '../../demo/copy';
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import {
@@ -23,6 +24,7 @@ import { useTheme } from '../../providers/ThemeProvider';
 import { User } from '../../types';
 
 export const ResetPinPage: React.FC = () => {
+  const copyText=useCopy();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { locale, setLocale } = useI18n();
@@ -423,7 +425,7 @@ export const ResetPinPage: React.FC = () => {
                 {submitError && (
                   <div className="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 text-xs text-rose-700 dark:text-rose-300 flex items-start gap-2">
                     <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-                    <span>{submitError}</span>
+                    <span>{copyText(submitError)}</span>
                   </div>
                 )}
 
