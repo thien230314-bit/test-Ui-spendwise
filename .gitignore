@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env*
+!.env.example
+reference-*/
+apps/user-mobile/
+docs/screenshots/
+*.log
+.vercel/

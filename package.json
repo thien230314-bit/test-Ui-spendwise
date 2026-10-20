@@ -1,0 +1,16 @@
+{
+  "name": "spendwise-interactive-demo",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/admin-crm"
+  ],
+  "scripts": {
+    "dev": "npm --prefix apps/admin-crm run dev -- --port 5173",
+    "build": "npm --prefix apps/admin-crm run build",
+    "typecheck": "npm --prefix apps/admin-crm run lint",
+    "test": "node scripts/test-demo.cjs",
+    "preview": "npm --prefix apps/admin-crm run preview -- --port 5173",
+    "test:browser": "node scripts/test-browser.cjs"
+  }
+}

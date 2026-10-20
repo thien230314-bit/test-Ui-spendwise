@@ -1,0 +1,1 @@
+{"buildCommand":"npm run build","outputDirectory":"apps/admin-crm/dist","rewrites":[{"source":"/(.*)","destination":"/index.html"}]}

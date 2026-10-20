@@ -1,0 +1,6 @@
+reference-*
+apps/user-mobile
+**/node_modules
+**/dist
+docs/screenshots
+.git

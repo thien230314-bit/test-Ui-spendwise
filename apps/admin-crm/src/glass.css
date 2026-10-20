@@ -1,0 +1,105 @@
+/* Shared visual contract; Auth geometry, clocks and event handlers stay in source. */
+:root {
+  --sw-primary: #047857;
+  --sw-primary-hover: #065f46;
+  --sw-primary-pressed: #064e3b;
+  --sw-on-primary: #fff;
+  --sw-text: #102b35;
+  --sw-muted: #526876;
+  --sw-surface: rgba(255,255,255,.8);
+  --sw-input: rgba(255,255,255,.72);
+  --sw-border: rgba(15,118,110,.2);
+  --sw-danger: #be123c;
+  --sw-danger-soft: #fff1f2;
+  --sw-success: #047857;
+  --sw-success-soft: #ecfdf5;
+  --sw-shadow: 0 20px 60px -20px rgba(15,78,69,.22), inset 0 1px 0 rgba(255,255,255,.65);
+  --sw-background: radial-gradient(ellipse at 8% 10%, rgba(45,212,191,.22), transparent 55%), radial-gradient(ellipse at 92% 80%, rgba(56,189,248,.16), transparent 60%), linear-gradient(130deg,#eff8f4,#edf4fa);
+}
+html.dark {
+  --sw-text: #edf9f8;
+  --sw-muted: #adc5ce;
+  --sw-surface: rgba(17,39,51,.9);
+  --sw-input: rgba(12,32,43,.88);
+  --sw-border: rgba(148,211,205,.22);
+  --sw-danger: #fda4af;
+  --sw-danger-soft: #3f1427;
+  --sw-success: #6ee7b7;
+  --sw-success-soft: #0b3b34;
+  --sw-shadow: 0 24px 70px -20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12);
+  --sw-background: radial-gradient(ellipse at 8% 10%, rgba(13,148,136,.16), transparent 55%), radial-gradient(ellipse at 92% 80%, rgba(14,116,144,.14), transparent 60%), linear-gradient(130deg,#091a23,#0f2133);
+}
+body, html.dark body, #admin-app-shell, .desk-tabletop-container {
+  background: var(--sw-background);
+  background-attachment: fixed;
+  color: var(--sw-text);
+}
+/* Existing notebook surfaces retain their positions and page transitions. */
+html .auth-container, html .auth-form-box.login, html .auth-form-box.register,
+html .notebook-leather-cover, html .desk-leather-mat {
+  background: var(--sw-surface) !important;
+  border-color: var(--sw-border);
+  box-shadow: var(--sw-shadow);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+html .auth-toggle-panel, html .auth-toggle-panel.toggle-left, html .auth-toggle-panel.toggle-right {
+  background: linear-gradient(135deg,rgba(15,118,110,.96),rgba(7,74,76,.98));
+  border-color: rgba(255,255,255,.3);
+}
+html .auth-form-box::before { background: linear-gradient(90deg,rgba(15,118,110,.06),transparent); }
+html .desk-lamp-glow-overlay { background: radial-gradient(ellipse at 30% 5%,rgba(255,255,255,.2),transparent 65%); }
+html .desk-wood-vignette { background: none; }
+html .desk-leather-mat::before { border: 1px solid var(--sw-border); }
+html .notebook-corner::before { background: linear-gradient(135deg,#defbf1,#74bcb6,#276d70); }
+html .notebook-ring-loop { background: linear-gradient(135deg,#e3f6f3,#75a7a6,#234f55); }
+html .auth-book-wrapper::after { box-shadow: var(--sw-shadow); }
+html .desk-stationery-item, html .notebook-pen-loop { opacity: .16; }
+#admin-app-shell :is(aside,header),
+#admin-app-shell :is(.bg-white,.dark\:bg-slate-900,.dark\:bg-slate-800)[class*="rounded"],
+[role="dialog"], .sw-glass {
+  background: var(--sw-surface) !important;
+  border-color: var(--sw-border);
+  box-shadow: var(--sw-shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+input:not([type="checkbox"]):not([type="radio"]), textarea, select {
+  background-color: var(--sw-input) !important;
+  border-color: var(--sw-border) !important;
+  color: var(--sw-text) !important;
+}
+input::placeholder, textarea::placeholder { color: var(--sw-muted) !important; opacity: .85; }
+:is(input,textarea,select):focus-visible { outline: 2px solid #0d9488 !important; outline-offset: 2px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible { outline: 3px solid #0d9488 !important; outline-offset: 3px; }
+.sw-button, button[class*="bg-emerald-600"], button[class*="from-emerald-600"],
+.auth-toggle-panel button[class*="bg-"], .sw-button[data-variant="primary"] {
+  background: var(--sw-primary);
+  background-image: linear-gradient(120deg,var(--sw-primary),#076d64);
+  border-color: rgba(255,255,255,.25);
+  color: var(--sw-on-primary);
+  box-shadow: 0 5px 14px rgba(6,78,59,.16), inset 0 1px 0 rgba(255,255,255,.15);
+}
+.sw-button[data-variant="secondary"], .sw-button[data-variant="outline"], .sw-button[data-variant="accent"] {
+  background: var(--sw-input); color: var(--sw-text); border: 1px solid var(--sw-border); box-shadow: none;
+}
+.sw-button[data-variant="ghost"] { background: transparent; color: var(--sw-success); box-shadow: none; border-color: transparent; }
+.sw-button[data-variant="danger"] { background: #be123c; color: white; border-color: #e7859e; }
+@media (hover:hover) {
+  .sw-button:not(:disabled):hover, button[class*="from-emerald-600"]:not(:disabled):hover { filter: brightness(1.08); }
+}
+button:not(:disabled):active { filter: brightness(.92); }
+button:disabled, button[aria-disabled="true"] { opacity: .5; cursor: not-allowed; pointer-events: none; }
+[role="alert"], [class*="bg-rose-50"][class*="text-rose-"] { color: var(--sw-danger); background: var(--sw-danger-soft); }
+[class*="bg-emerald-50"][class*="text-emerald-"] { color: var(--sw-success); background: var(--sw-success-soft); }
+.sw-button-progress { width: 14px; height: 3px; border-radius: 9px; background: currentColor; animation: sw-pulse 1s ease-in-out infinite; }
+@keyframes sw-pulse { 50% { opacity: .35; } }
+@supports not (backdrop-filter:blur(1px)) {
+  :root { --sw-surface: #f5faf9; --sw-input: #fff; }
+  html.dark { --sw-surface: #112733; --sw-input: #0c202b; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .sw-button-progress { animation: none; }
+  button { transition: none !important; }
+}
