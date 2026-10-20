@@ -80,6 +80,7 @@ export function Skeleton({ kind = 'ai' }: { kind?: string }) {
       case 'history': content=<>{title}<Sk className="sk-input"/>{filters}{[0,1].map(i=><div className="sk-panel" key={i}><Sk className="sk-short"/>{lines(3)}</div>)}</>;break;
       case 'planning': content=<>{title}{filters}{[0,1,2].map(i=><div className="sk-panel" key={i}>{lines(1)}{progress}{filters}</div>)}</>;break;
       case 'notifications': content=<>{title}{filters}{[0,1,2].map(i=><div className="sk-panel" key={i}>{lines(1)}<Sk/><Sk className="sk-short"/></div>)}</>;break;
+      case 'reply': content=<><Sk/><Sk className="sk-short"/></>;break;
       case 'ai': content=<>{title}<div className="sk-chat"><Sk/><Sk/><Sk/><Sk/></div><Sk className="sk-input"/></>;break;
       case 'profile': case 'settings': content=<><div className="sk-profile"><Sk className="sk-avatar"/>{title}<Sk className="sk-short"/></div>{panel(<>{title}{lines(5)}</>)}{panel(<>{title}{lines(6)}</>)}</>;break;
       case 'password': content=<>{title}{panel(<>{[0,1,2].map(i=><div className="sk-field" key={i}><Sk className="sk-short"/><Sk className="sk-input"/></div>)}<Sk className="sk-input"/></>)}</>;break;

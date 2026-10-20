@@ -48,6 +48,7 @@ npm run test:browser
 node scripts/test-social-auth.cjs
 npm run test:ui
 npm run test:admin
+npm run test:feedback
 npm run build
 npm run preview
 ```
@@ -89,3 +90,5 @@ Source tham chiếu SpendWise: commit `6e6f66059d8d61944047b1f2cb5bcc3975b5ec85`
 | Admin Maintenance | [Bảo trì](img/admin-maintenance.png) | [Skeleton](img/admin-maintenance-skeleton.png) |
 
 [Admin Login](img/admin-login.png) · [Thành công](img/user-transfer-success.png) · [Thất bại](img/user-transfer-failure.png).
+
+Ảnh trạng thái bổ sung: [Auth S](img/user-auth-s-loading.png), [OTP lỗi](img/user-otp-error.png), [đăng ký hoàn tất](img/user-registration-complete.png), [Pending](img/user-withdraw-pending.png), [AI hội thoại](img/user-ai-conversation.png), [Admin Login Dark](img/admin-login-dark.png).

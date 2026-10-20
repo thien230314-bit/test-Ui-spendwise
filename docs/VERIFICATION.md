@@ -52,3 +52,5 @@ Repository was empty before initialization. Source and real PNG evidence are pus
 - No Backend reference source was modified.
 
 Admin follow-up: inline support ticket reply and assignment, maintenance plan edit and the existing broadcast/restriction regression passed in Chrome. ADM-03 uses ticket list/conversation/action columns; ADM-04 adds three KPI cards and a four-column delivery table. PNGs are under `img/admin-*.png`.
+
+Final feedback group: original S remains source-identical; the User login button is disabled while authenticating. Pending withdrawal result is bounded by the phone screen and recorded as a pending hold. AI reply loading stays below 100px and resolves to a scripted response. Admin invalid-credential and Dark login states were captured. Registration/OTP/PIN and A/B social regression passed. Final production build passes with the inherited >500kB chunk-size warning (including recovery password-strength dictionaries); no warning threshold was increased.

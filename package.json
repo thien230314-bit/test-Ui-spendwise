@@ -13,6 +13,7 @@
     "preview": "npm --prefix apps/admin-crm run preview -- --port 5173",
     "test:browser": "node scripts/test-browser.cjs",
     "test:ui": "node scripts/test-ui-review.cjs",
-    "test:admin": "node scripts/test-admin-actions.cjs"
+    "test:admin": "node scripts/test-admin-actions.cjs",
+    "test:feedback": "node scripts/test-feedback.cjs"
   }
 }
