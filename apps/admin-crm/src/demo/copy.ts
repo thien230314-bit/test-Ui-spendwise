@@ -12,4 +12,4 @@ export function localize(value: string, locale: string): string {
  for(const [key,pair] of Object.entries(messages))if(value.includes(key))return value.replace(key,pair[index]);
  return value;
 }
-export function useCopy(){const {locale}=useI18n();return (vi:string,en?:string)=>{const text=en===undefined?localize(vi,locale):locale==='en-US'?en:vi;return locale==='en-US'?text:terminology.reduce((s,[from,to])=>s.replaceAll(from,to),text);};}
+export function useCopy(){const {locale}=useI18n();return (vi:string,en?:string)=>{const text=en===undefined?localize(vi,locale):locale==='en-US'?en:vi;if(locale==='en-US'||(en===undefined&&!(vi in dictionary)&&text===vi))return text;return terminology.reduce((s,[from,to])=>s.replaceAll(from,to),text);};}

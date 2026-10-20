@@ -2,7 +2,7 @@
 
 Material: muted mint ambient gradients, frosted panels, restrained emerald/teal controls, navy/green readable text. Dark mode uses deep navy/green with brighter semantic text. `glass.css` defines shared control/feedback tokens; `demo.css` defines product surfaces, phone containment and desktop layout. Text remains readable above a mostly opaque core on overlapping Auth pages; transparent page cores must not expose text from the other mounted form.
 
-The original `SpendWiseSLoading.tsx` renderer, geometric S path, motion bead, dual arc and CSS clocks are retained. Notebook page-strip flip code is reused from the reference source. Auth changes adapt mock transport, demo prefill, validation and materials; Login proceeds directly into the demo as explicitly requested. Admin uses the original AuthPage. All account information is synthetic and labeled.
+The original `SpendWiseSLoading.tsx` renderer, geometric S path, motion bead, dual arc and CSS clocks are retained. Notebook page-strip flip code is reused from the reference source. Auth changes adapt mock transport, demo prefill, validation and materials; Login proceeds directly into the demo as explicitly requested. Admin uses a separate ordinary glass sign-in card. User recovery reuses the original AuthPage. All account information is synthetic and labeled.
 
 Phone: centered on desktop; outer device 410px with approximately 390px screen, height capped to the viewport. Status bar, island and home indicator are decorative. Inner flex viewport owns scrolling. Bottom navbar and absolute overlay layers are children of that viewport. On widths ≤600px the border disappears, the application occupies 100dvh, and safe-area padding is honored. Admin has a separate desktop layout without a phone.
 
@@ -11,3 +11,5 @@ Controls: one shared Button with primary/secondary/ghost/danger semantics, hover
 Success/failure/pending results are distinct. Financial success includes amount, recipient when applicable and reference. Pending never displays a success tick. No S loader is used after login. The result tick/X reuse the original stroke-drawing CSS with matching SVG pathLength values.
 
 Reference videos: both supplied TikTok short URLs were inaccessible through the browser fetch tool. **VIDEO_REFERENCE_UNAVAILABLE**. No claim of watching/analyzing their frames is made.
+
+Quality refinement: Admin body 15px, table cells 14px, headers 12px, sidebar labels 14px on desktop. The sidebar collapses from 254px to 84px, retains named/icon navigation and active state, and persists locally. User AI uses an emerald hero, read-only balance context, two illustrated-by-icon prompt choices and timestamped chat bubbles. Empty-state input stays in document flow; conversation input sticks above the phone navbar. All controlled interface copy and enum statuses follow the active VI/EN locale. User-authored names, notes and chat input are retained as data.
