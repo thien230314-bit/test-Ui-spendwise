@@ -123,8 +123,6 @@ export interface Transaction {
   rawDate: string;
   occurredAt?: string;
   createdAt?: string;
-  avatarUrl?: string | null;
-  emailVerified?: boolean;
   isManualEntry?: boolean;
   evidence?: AttachmentMetadata[];
   counterparty?: string;
@@ -336,8 +334,6 @@ export interface RecurringTransaction {
   lastRunAt?: string;
   occurrences?: RecurringOccurrence[];
   createdAt?: string;
-  avatarUrl?: string | null;
-  emailVerified?: boolean;
 }
 
 export interface TransactionRule {
@@ -348,8 +344,6 @@ export interface TransactionRule {
   priority: number;
   isActive: boolean;
   createdAt?: string;
-  avatarUrl?: string | null;
-  emailVerified?: boolean;
 }
 
 export * from './friends';
