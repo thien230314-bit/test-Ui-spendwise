@@ -407,6 +407,12 @@ export const AdminUsersPage: React.FC = () => {
     return matchesSearch && matchesStatus;
   });
 
+  const getFullAvatarUrl = (avatarUrl?: string | null) => {
+    if (!avatarUrl) return null;
+    if (avatarUrl.startsWith('http://') || avatarUrl.startsWith('https://')) return avatarUrl;
+    const baseUrl = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/api\/?$/, '');
+    return ${baseUrl};
+  };
   const getAvatarInitials = (name: string) => {
     if (!name) return 'U';
     const parts = name.trim().split(/\s+/);

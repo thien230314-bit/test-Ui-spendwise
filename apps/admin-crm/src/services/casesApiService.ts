@@ -517,6 +517,8 @@ export interface AdminUserDto {
   hasSecurityPin: boolean;
   createdAt: string;
   lastLoginAt?: string | null;
+  avatarUrl?: string | null;
+  emailVerified?: boolean;
 }
 
 export interface AdminTemporaryPasswordResponse {

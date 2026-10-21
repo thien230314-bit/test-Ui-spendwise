@@ -53,9 +53,7 @@ export const UserDropdown: React.FC<UserDropdownProps> = ({ isOpen, onClose }) =
       {/* User Info Header */}
       <div className="p-4 border-b border-stone-100 dark:border-slate-800 bg-stone-50/50 dark:bg-slate-900/50">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-700 text-white font-bold text-sm shadow-sm">
-            {displayInitials}
-          </div>
+          {currentUser?.avatarUrl ? (<img src={currentUser.avatarUrl.startsWith('http') ? currentUser.avatarUrl : `${(import.meta.env.VITE_API_BASE_URL || '').replace(/\/api\/?$/, '')}${currentUser.avatarUrl.startsWith('/') ? '' : '/'}${currentUser.avatarUrl}`} alt={displayName} className="h-10 w-10 rounded-full object-cover shrink-0 ring-1 ring-emerald-500/30 shadow-sm" />) : (<div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-700 text-white font-bold text-sm shadow-sm">{displayInitials}</div>)}
           <div className="flex flex-col min-w-0">
             <div className="flex items-center gap-1.5">
               <span className="text-sm font-semibold text-stone-900 dark:text-white truncate">

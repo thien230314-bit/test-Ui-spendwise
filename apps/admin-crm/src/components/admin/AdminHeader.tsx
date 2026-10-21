@@ -191,9 +191,7 @@ export const AdminHeader: React.FC<AdminHeaderProps> = ({ pageTitle, pageSubtitl
             onClick={() => setIsUserMenuOpen((prev) => !prev)}
             className="flex items-center gap-2.5 rounded-xl border border-slate-200 dark:border-slate-800 p-1 pr-3 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition"
           >
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900 dark:bg-emerald-600 text-white font-bold text-xs shadow-xs">
-              {currentUser?.avatarInitials || 'AD'}
-            </div>
+            {currentUser?.avatarUrl ? (<img src={currentUser.avatarUrl.startsWith('http') ? currentUser.avatarUrl : `${(import.meta.env.VITE_API_BASE_URL || '').replace(/\/api\/?$/, '')}${currentUser.avatarUrl.startsWith('/') ? '' : '/'}${currentUser.avatarUrl}`} alt={currentUser?.name || 'Admin'} className="h-7 w-7 rounded-lg object-cover shadow-xs" />) : (<div className="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-900 dark:bg-emerald-600 text-white font-bold text-xs shadow-xs">{currentUser?.avatarInitials || 'AD'}</div>)}
             <div className="flex flex-col text-left">
               <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 leading-none">
                 {currentUser?.name || 'Admin'}
